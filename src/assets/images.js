@@ -1,18 +1,21 @@
 // Imágenes y videos para el sitio web
-// Importar imágenes locales de dron
-import droneFarm1 from './images/DJI_20240523145421_0001_D.JPG';
-import droneFarm2 from './images/DJI_20240523145441_0002_D.JPG';
-import droneFarm3 from './images/DJI_20240523145450_0003_D.JPG';
-import droneFarm4 from './images/DJI_20240523145605_0004_D.JPG';
-import droneFarm5 from './images/DJI_20240523145653_0005_D.JPG';
-import droneFarm6 from './images/DJI_20240523145657_0006_D.JPG';
-import droneFarm7 from './images/DJI_20240523145718_0007_D.JPG';
-import droneFarm8 from './images/DJI_20240523145733_0008_D.JPG';
-import droneFarm9 from './images/DJI_20240523145807_0009_D.JPG';
-import droneFarm10 from './images/DJI_20240523145810_0010_D.JPG';
-import droneFarm11 from './images/DJI_20240523145851_0011_D.JPG';
-import droneFarm15 from './images/DJI_20240523150913_0015_D.JPG';
-import droneFarm17 from './images/DJI_20240523151015_0017_D.JPG';
+// Usar URLs de imágenes externas en lugar de importar imágenes locales
+// Estas son imágenes de café de Unsplash como placeholders
+
+// Definir URLs de imágenes externas
+const droneFarm1 = 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1742&auto=format&fit=crop';
+const droneFarm2 = 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1740&auto=format&fit=crop';
+const droneFarm3 = 'https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?q=80&w=1740&auto=format&fit=crop';
+const droneFarm4 = 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1742&auto=format&fit=crop';
+const droneFarm5 = 'https://images.unsplash.com/photo-1442975631115-c4f7b05b6107?q=80&w=1740&auto=format&fit=crop';
+const droneFarm6 = 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1740&auto=format&fit=crop';
+const droneFarm7 = 'https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1734&auto=format&fit=crop';
+const droneFarm8 = 'https://images.unsplash.com/photo-1459755486867-b55449bb39ff?q=80&w=1769&auto=format&fit=crop';
+const droneFarm9 = 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1740&auto=format&fit=crop';
+const droneFarm10 = 'https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1887&auto=format&fit=crop';
+const droneFarm11 = 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1887&auto=format&fit=crop';
+const droneFarm15 = 'https://images.unsplash.com/photo-1507133750040-4a8f57021571?q=80&w=1887&auto=format&fit=crop';
+const droneFarm17 = 'https://images.unsplash.com/photo-1518057111178-44a106bad636?q=80&w=1887&auto=format&fit=crop';
 
 export const images = {
   // Imágenes para la página de inicio

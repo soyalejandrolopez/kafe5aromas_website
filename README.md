@@ -44,19 +44,32 @@ Los archivos de video no se incluyen en el repositorio debido a las limitaciones
 
 Consulta `src/assets/movies/README.md` para más detalles.
 
-## Despliegue
+## Despliegue en Vercel
 
-El sitio está configurado para ser desplegado en GitHub Pages:
+El sitio está configurado para ser desplegado en Vercel:
 
-```bash
-# Verificar que todo esté listo para el despliegue
-npm run check-deploy
+1. Asegúrate de que el proyecto se construya correctamente localmente:
+   ```bash
+   npm run build
+   ```
 
-# Desplegar en GitHub Pages
-npm run deploy
-```
+2. Sube los cambios a GitHub:
+   ```bash
+   git add .
+   git commit -m "Preparar para despliegue"
+   git push origin main
+   ```
 
-Después del primer despliegue, asegúrate de configurar GitHub Pages en la configuración del repositorio para usar la rama `gh-pages`.
+3. Importa el repositorio en Vercel:
+   - Ve a [Vercel](https://vercel.com/new)
+   - Conecta con GitHub y selecciona el repositorio
+   - Configura:
+     - Framework Preset: Vite
+     - Build Command: `npm run build`
+     - Output Directory: `dist`
+   - Haz clic en "Deploy"
+
+Para más detalles, consulta el archivo `deploy-to-vercel.md`.
 
 ## Licencia
 
