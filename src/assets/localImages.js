@@ -1,140 +1,99 @@
 // Local high-quality images for the Kafe5aromas website
 // This file centralizes all image imports for better management
 
-// Import logo
-import logo from './images/logofinal.png';
+// Import logo for development
+import logoImg from './images/logofinal.png';
 
-// Check if we're in production mode
-const isProduction = import.meta.env.PROD;
+// Define static paths for production
+const STATIC_PATH = '/static/images/';
 
-// Define a base path for images
-const basePath = '/images/';
-
-// Define a placeholder image path for fallback
-const placeholderImage = `${basePath}placeholder.jpg`;
-
-// Define variables for images
-let droneImage1, droneImage2, droneImage3, droneImage4, droneImage5,
-    droneImage6, droneImage7, droneImage8, droneImage9, droneImage10,
-    droneImage11, droneImage12, droneImage13;
-
-// Function to create image URLs
-const createImageUrl = (filename) => {
-  if (isProduction) {
-    // In production, use absolute paths from the public directory
-    return `${basePath}${filename}`;
-  } else {
-    // In development, try to use direct imports
-    try {
-      return new URL(`./images/${filename}`, import.meta.url).href;
-    } catch (error) {
-      console.warn(`Could not load image: ${filename}, using fallback path`);
-      return `${basePath}${filename}`;
-    }
-  }
-};
-
-// Set all image URLs
-droneImage1 = createImageUrl('DJI_20240523145421_0001_D.JPG');
-droneImage2 = createImageUrl('DJI_20240523145441_0002_D.JPG');
-droneImage3 = createImageUrl('DJI_20240523145450_0003_D.JPG');
-droneImage4 = createImageUrl('DJI_20240523145605_0004_D.JPG');
-droneImage5 = createImageUrl('DJI_20240523145653_0005_D.JPG');
-droneImage6 = createImageUrl('DJI_20240523145657_0006_D.JPG');
-droneImage7 = createImageUrl('DJI_20240523145718_0007_D.JPG');
-droneImage8 = createImageUrl('DJI_20240523145733_0008_D.JPG');
-droneImage9 = createImageUrl('DJI_20240523145807_0009_D.JPG');
-droneImage10 = createImageUrl('DJI_20240523145810_0010_D.JPG');
-droneImage11 = createImageUrl('DJI_20240523145851_0011_D.JPG');
-droneImage12 = createImageUrl('DJI_20240523150913_0015_D.JPG');
-droneImage13 = createImageUrl('DJI_20240523151015_0017_D.JPG');
+// Define logo path
+const logo = logoImg;
 
 // Export organized image collections
 export const localImages = {
   // Logo
   logo,
-  homeBackground: droneImage3, //  DJI_20240523145450_0003_D.JPG
+  homeBackground: STATIC_PATH + 'farm3.jpg',
 
   // Drone images collection
   drone: {
-    farm1: droneImage1, // DJI_20240523145421_0001_D.JPG
-    farm2: droneImage2, // DJI_20240523145441_0002_D.JPG
-    farm3: droneImage3, // DJI_20240523145450_0003_D.JPG
-    farm4: droneImage4, // DJI_20240523145605_0004_D.JPG
-    farm5: droneImage5, // DJI_20240523145653_0005_D.JPG
-    farm6: droneImage6, // DJI_20240523145657_0006_D.JPG
-    farm7: droneImage7, // DJI_20240523145718_0007_D.JPG
-    farm8: droneImage8, // DJI_20240523145733_0008_D.JPG
-    farm9: droneImage9, // DJI_20240523145807_0009_D.JPG
-    farm10: droneImage10, // DJI_20240523145810_0010_D.JPG
-    farm11: droneImage11, // DJI_20240523145851_0011_D.JPG
-    farm12: droneImage12, // DJI_20240523150913_0015_D.JPG
-    farm13: droneImage13  // DJI_20240523151015_0017_D.JPG
+    farm1: STATIC_PATH + 'farm1.jpg',
+    farm2: STATIC_PATH + 'farm2.jpg',
+    farm3: STATIC_PATH + 'farm3.jpg',
+    farm4: STATIC_PATH + 'farm4.jpg',
+    farm5: STATIC_PATH + 'farm5.jpg',
+    farm6: STATIC_PATH + 'farm6.jpg',
+    farm7: STATIC_PATH + 'farm7.jpg',
+    farm8: STATIC_PATH + 'farm8.jpg',
+    farm9: STATIC_PATH + 'farm9.jpg',
+    farm10: STATIC_PATH + 'farm10.jpg',
+    farm11: STATIC_PATH + 'farm11.jpg',
+    farm12: STATIC_PATH + 'farm12.jpg',
+    farm13: STATIC_PATH + 'farm13.jpg'
   },
-
+  
   // Home page images
   home: {
-    hero: droneImage3, // Use our local high-quality image
-    about: droneImage1,
-    beans: droneImage2,
-    brewing: droneImage4
+    hero: STATIC_PATH + 'home-hero.jpg',
+    about: STATIC_PATH + 'home-about.jpg',
+    beans: STATIC_PATH + 'home-beans.jpg',
+    brewing: STATIC_PATH + 'home-brewing.jpg'
   },
-
+  
   // Mission page images
   mission: {
-    hero: droneImage5,
-    farmers: droneImage6,
-    processing: droneImage7,
-    sustainability: droneImage8
+    hero: STATIC_PATH + 'mission-hero.jpg',
+    farmers: STATIC_PATH + 'mission-farmers.jpg',
+    processing: STATIC_PATH + 'mission-processing.jpg',
+    sustainability: STATIC_PATH + 'mission-sustainability.jpg'
   },
-
+  
   // Values page images
   values: {
-    hero: droneImage9,
-    quality: droneImage10,
-    community: droneImage11,
-    innovation: droneImage12
+    hero: STATIC_PATH + 'values-hero.jpg',
+    quality: STATIC_PATH + 'values-quality.jpg',
+    community: STATIC_PATH + 'values-community.jpg',
+    innovation: STATIC_PATH + 'values-innovation.jpg'
   },
-
+  
   // Vision page images
   vision: {
-    hero: droneImage13,
-    future: droneImage1,
-    experience: droneImage2,
-    growth: droneImage3
+    hero: STATIC_PATH + 'vision-hero.jpg',
+    future: STATIC_PATH + 'vision-future.jpg',
+    experience: STATIC_PATH + 'vision-experience.jpg',
+    growth: STATIC_PATH + 'vision-growth.jpg'
   },
-
+  
   // About page images
   about: {
-    hero: droneImage4,
-    team: droneImage5,
-    process: droneImage6,
-    expertise: droneImage7
+    hero: STATIC_PATH + 'about-hero.jpg',
+    team: STATIC_PATH + 'about-team.jpg',
+    process: STATIC_PATH + 'about-process.jpg',
+    expertise: STATIC_PATH + 'about-expertise.jpg'
   },
-
+  
   // History page images
   history: {
-    hero: droneImage8,
-    origins: droneImage9,
-    tradition: droneImage10,
-    evolution: droneImage11
+    hero: STATIC_PATH + 'history-hero.jpg',
+    origins: STATIC_PATH + 'history-origins.jpg',
+    tradition: STATIC_PATH + 'history-tradition.jpg',
+    evolution: STATIC_PATH + 'history-evolution.jpg'
   },
-
+  
   // Contact page images
   contact: {
-    hero: droneImage12,
-    location: droneImage13,
-    team: droneImage1
+    hero: STATIC_PATH + 'contact-hero.jpg',
+    location: STATIC_PATH + 'contact-location.jpg',
+    team: STATIC_PATH + 'contact-team.jpg'
   },
-
+  
   // General purpose images
   general: {
-    beans: droneImage2,
-    cup: droneImage3,
-    farm: droneImage4,
-    farmers: droneImage5,
-    brewing: droneImage6
+    beans: STATIC_PATH + 'general-beans.jpg',
+    cup: STATIC_PATH + 'general-cup.jpg',
+    farm: STATIC_PATH + 'general-farm.jpg',
+    farmers: STATIC_PATH + 'general-farmers.jpg',
+    brewing: STATIC_PATH + 'general-brewing.jpg'
   }
 };
-
-export default localImages;
