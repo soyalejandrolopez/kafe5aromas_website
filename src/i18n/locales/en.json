@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Home",
+    "mission": "Mission",
+    "values": "Values",
+    "vision": "Vision",
+    "about": "About Us",
+    "history": "Our History",
+    "contact": "Contact"
+  },
+  "language": {
+    "en": "English",
+    "es": "Spanish"
+  },
+  "home": {
+    "welcome": "Experience the Essence",
+    "tagline": "Exceptional specialty and single-origin coffee"
+  },
+  "mission": {
+    "title": "Our Mission",
+    "content": "At Kafe5aromas our mission is to elevate the coffee experience by sourcing and delivering the finest specialty and single-origin coffees. We are dedicated to partnering directly with farmers, providing education and support to help them produce exceptional quality coffee."
+  },
+  "values": {
+    "title": "Our Values",
+    "qualityAssurance": {
+      "title": "Quality Assurance",
+      "content": "Ensure the highest quality of coffee by implementing rigorous quality control measures and continuously improving our sourcing and processing methods."
+    },
+    "farmerEmpowerment": {
+      "title": "Farmer Empowerment",
+      "content": "Provide education and resources to farmers to enhance their cultivation practices, aiming to improve bean quality and promote sustainable farming techniques."
+    },
+    "directTrade": {
+      "title": "Direct Trade Relationships",
+      "content": "Establish and maintain direct trade relationships with coffee farmers to ensure fair pricing and support their economic growth."
+    },
+    "sustainability": {
+      "title": "Sustainable Practices",
+      "content": "Promote and adopt environmentally sustainable practices throughout our supply chain to minimize our ecological footprint and support responsible coffee production."
+    },
+    "customerExperience": {
+      "title": "Customer Experience",
+      "content": "Deliver an exceptional coffee experience to our customers by offering a diverse range of single-origin and specialty coffees, and by educating them about the unique stories and flavors behind each cup."
+    },
+    "innovation": {
+      "title": "Innovation and Growth",
+      "content": "Continuously explore and introduce innovative methods and technologies to enhance coffee quality and operational efficiency while expanding our market presence."
+    },
+    "community": {
+      "title": "Community Engagement",
+      "content": "Build and support local and global coffee communities by participating in industry events, fostering collaboration, and promoting coffee culture and knowledge."
+    },
+    "transparency": {
+      "title": "Transparency and Integrity",
+      "content": "Maintain transparency in our sourcing practices and business operations to build trust with both our farmers and customers."
+    }
+  },
+  "vision": {
+    "title": "Our Vision",
+    "content": "Our vision is to become the leading specialty and single-origin coffee through retail and wholesale channels, delivering exceptional quality and sustainability while fostering direct partnerships with farmers and connecting with coffee enthusiasts."
+  },
+  "about": {
+    "title": "About Us",
+    "content": "At Kafe5aromas, we are dedicated enthusiasts of specialty and single-origin coffee. Our commitment is to bring you exceptional coffee by forming close partnerships with farmers and supporting their journey to produce the highest quality coffee."
+  },
+  "history": {
+    "title": "Our History",
+    "content": "What began as a dream to offer exceptional specialty, single-origin coffee has become a mission to connect coffee lovers with the world's most authentic flavors. From the start, we've built close partnerships with farmers, working together to enhance coffee quality and support sustainable, fair practices. Every visit to the countryside and each conversation with our producers deepens our understanding and lets us share their rich stories. Each cup of our coffee reflects this collaboration and the passion we put into every step. At Kafe5aromas, we're committed to delivering coffee that not only delights the palate but also touches the heart."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "copyright": "© 2024 Kafe 5 Aromas"
+  }
+}

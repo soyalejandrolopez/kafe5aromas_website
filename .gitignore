@@ -1,0 +1,51 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Large media files
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.avi
+*.AVI
+*.wmv
+*.WMV
+*.flv
+*.FLV
+*.webm
+*.WEBM
+*.mkv
+*.MKV
+
+# Large image files
+src/assets/images/DJI_*.JPG
+*.JPG
+# Exclude any file larger than 50MB
+# Host these files externally instead
+
+# Build files
+/dist
+/.cache

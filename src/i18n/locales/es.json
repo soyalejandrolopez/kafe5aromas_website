@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "mission": "Misión",
+    "values": "Valores",
+    "vision": "Visión",
+    "about": "Quiénes Somos",
+    "history": "Nuestra Historia",
+    "contact": "Contacto"
+  },
+  "language": {
+    "en": "Inglés",
+    "es": "Español"
+  },
+  "home": {
+    "welcome": "Descubre la Esencia",
+    "tagline": "Café excepcional de especialidad y origen único"
+  },
+  "mission": {
+    "title": "Nuestra Misión",
+    "content": "En Kafe5aromas nuestra misión es elevar la experiencia del café obteniendo y entregando los mejores cafés especiales y de origen único. Nos asociamos directamente con los caficultores, brindándoles educación y apoyo para producir cafe de calidad excepcional."
+  },
+  "values": {
+    "title": "Nuestros Valores",
+    "qualityAssurance": {
+      "title": "Garantía de Calidad",
+      "content": "Garantizar la más alta calidad del café mediante la implementación de rigurosas medidas de control de calidad y la mejora continua de nuestros métodos de abastecimiento y procesamiento."
+    },
+    "farmerEmpowerment": {
+      "title": "Empoderamiento de los Agricultores",
+      "content": "Proporcionar educación y recursos a los agricultores para mejorar sus prácticas de cultivo, con el objetivo de mejorar la calidad del cafe y promover técnicas agrícolas sostenibles."
+    },
+    "directTrade": {
+      "title": "Relaciones Comerciales Directas",
+      "content": "Establecer y mantener relaciones comerciales directas con los productores de café para garantizar precios justos y apoyar su crecimiento económico."
+    },
+    "sustainability": {
+      "title": "Prácticas Sostenibles",
+      "content": "Promover y adoptar prácticas ambientalmente sostenibles en toda nuestra cadena de suministro para minimizar nuestra huella ecológica y apoyar la producción responsable de café."
+    },
+    "customerExperience": {
+      "title": "Experiencia del Cliente",
+      "content": "Brindar una experiencia de café excepcional a nuestros clientes ofreciendo una amplia gama de cafés especiales y de origen único, y educándolos sobre las historias y sabores únicos detrás de cada taza."
+    },
+    "innovation": {
+      "title": "Innovación y Crecimiento",
+      "content": "Explorar e introducir continuamente métodos y tecnologías innovadores para mejorar la calidad del café y la eficiencia operativa mientras ampliamos nuestra presencia en el mercado."
+    },
+    "community": {
+      "title": "Participación Comunitaria",
+      "content": "Construir y apoyar comunidades cafetaleras locales y globales participando en eventos de la industria, fomentando la colaboración y promoviendo la cultura y el conocimiento del café."
+    },
+    "transparency": {
+      "title": "Transparencia e Integridad",
+      "content": "Mantener la transparencia en nuestras prácticas de abastecimiento y operaciones comerciales para generar confianza tanto con nuestros agricultores como con nuestros clientes."
+    }
+  },
+  "vision": {
+    "title": "Nuestra Visión",
+    "content": "Nuestra visión es convertirnos en el café de especialidad y de origen único líder a través de canales minoristas y mayoristas, brindando calidad y sostenibilidad excepcionales, al mismo tiempo que fomentamos asociaciones directas con los agricultores y conectamos con los entusiastas del café."
+  },
+  "about": {
+    "title": "Quiénes Somos",
+    "content": "En Kafe5aromas somos apasionados del café de especialidad y de origen único. Nuestro compromiso es brindarle un café excepcional formando asociaciones cercanas con los caficultores y apoyándolos en su camino para producir café de la más alta calidad."
+  },
+  "history": {
+    "title": "Nuestra Historia",
+    "content": "Lo que comenzó como un sueño de ofrecer café de especialidad excepcional y de origen único se ha convertido en una misión de conectar a los amantes del café con los sabores más auténticos del mundo. Desde el principio, hemos creado asociaciones estrechas con los agricultores, trabajando juntos para mejorar la calidad del cafe y apoyar prácticas justas y sostenibles. Cada visita al campo y cada conversación con nuestros productores profundiza nuestro conocimiento y nos permite compartir sus ricas historias. Cada taza de nuestro café refleja esta colaboración y la pasión que ponemos en cada paso. En Kafe5aromas estamos comprometidos a entregar café que no sólo deleite el paladar sino que también toque el corazón."
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "location": "Ubicación"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "copyright": "© 2024 Kafe 5 Aromas"
+  }
+}

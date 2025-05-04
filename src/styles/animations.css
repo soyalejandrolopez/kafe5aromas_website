@@ -1,0 +1,98 @@
+ @keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes wave {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1000px; }
+}
+
+@keyframes wave-reverse {
+  0% { background-position-x: 1000px; }
+  100% { background-position-x: 0; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(76, 125, 77, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(76, 125, 77, 0.4); }
+}
+
+@keyframes rotate3d {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.float { animation: float 6s ease-in-out infinite; }
+.float-slow { animation: float-slow 8s ease-in-out infinite; }
+.float-fast { animation: float-fast 4s ease-in-out infinite; }
+.glow { animation: glow 2s ease-in-out infinite; }
+
+.shadow-3d {
+  text-shadow: 
+    2px 2px 0 rgba(0, 0, 0, 0.2),
+    4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.container-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #4c7d4d 0%, #5D2A0C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.divider-gradient {
+  height: 3px;
+  width: 60px;
+  margin: 20px auto;
+  background: linear-gradient(to right, #4c7d4d, #5D2A0C);
+  border-radius: 3px;
+}
+
+.btn.glow {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4c7d4d 0%, #5D2A0C 100%);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn.glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(76, 125, 77, 0.3);
+}
+
+.btn.glow::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  transform: rotate(45deg);
+  animation: glow 3s linear infinite;
+  pointer-events: none;
+} 
