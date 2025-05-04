@@ -1,47 +1,93 @@
 :root {
-  /* Colors from the logo */
+  /* Enhanced color palette for professional look */
   --color-brown: #5D2A0C;
+  --color-brown-dark: #4A2208;
+  --color-brown-light: #7D4A2C;
+
   --color-green: #0F4D2E;
+  --color-green-dark: #0A3A22;
+  --color-green-light: #1A6940;
+  --color-green-pale: #E8F5E9;
+
+  --color-gold: #D4AF37;
+  --color-gold-light: #F5E7A5;
+
   --color-silver: #C0C0C0;
   --color-white: #FFFFFF;
+  --color-off-white: #F9F9F9;
 
-  /* Additional colors */
-  --color-light-brown: #8B5A2B;
-  --color-light-green: #2E8B57;
+  /* Neutral colors */
   --color-dark-gray: #333333;
+  --color-medium-gray: #666666;
   --color-light-gray: #F5F5F5;
-  --color-green-light: #E8F5E9;
+  --color-gray-100: #F8F9FA;
+  --color-gray-200: #E9ECEF;
+  --color-gray-300: #DEE2E6;
 
-  /* Font sizes */
-  --font-size-small: 0.875rem;
-  --font-size-medium: 1rem;
-  --font-size-large: 1.25rem;
-  --font-size-xlarge: 1.5rem;
-  --font-size-xxlarge: 2rem;
+  /* Accent colors */
+  --color-accent-1: #8B5A2B; /* Warm brown */
+  --color-accent-2: #2E8B57; /* Forest green */
+  --color-accent-3: #A67C52; /* Coffee brown */
 
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-xxl: 3rem;
+  /* Typography */
+  --font-primary: 'Montserrat', 'Segoe UI', sans-serif;
+  --font-secondary: 'Playfair Display', Georgia, serif;
+  --font-body: 'Open Sans', 'Segoe UI', sans-serif;
 
-  /* Border radius */
+  /* Font sizes - enhanced scale */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-small: 0.875rem; /* 14px */
+  --font-size-medium: 1rem;    /* 16px */
+  --font-size-large: 1.25rem;  /* 20px */
+  --font-size-xlarge: 1.5rem;  /* 24px */
+  --font-size-xxlarge: 2rem;   /* 32px */
+  --font-size-huge: 2.5rem;    /* 40px */
+  --font-size-display: 3rem;   /* 48px */
+
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Spacing - enhanced scale */
+  --spacing-xxs: 0.125rem;  /* 2px */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 1rem;       /* 16px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-xxl: 3rem;      /* 48px */
+  --spacing-xxxl: 4rem;     /* 64px */
+  --spacing-huge: 6rem;     /* 96px */
+
+  /* Border radius - enhanced */
+  --border-radius-xs: 2px;
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
   --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+  --border-radius-pill: 9999px;
   --border-radius-round: 50%;
 
-  /* 3D Effects */
-  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-  --shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.2);
+  /* Shadows - enhanced for professional look */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.16);
 
-  --shadow-3d-sm: 0 5px 15px rgba(0, 0, 0, 0.1), 0 -2px 5px rgba(255, 255, 255, 0.1);
-  --shadow-3d-md: 0 10px 20px rgba(0, 0, 0, 0.15), 0 -3px 8px rgba(255, 255, 255, 0.1);
-  --shadow-3d-lg: 0 15px 30px rgba(0, 0, 0, 0.2), 0 -5px 15px rgba(255, 255, 255, 0.1);
+  /* Colored shadows */
+  --shadow-green: 0 8px 24px rgba(15, 77, 46, 0.15);
+  --shadow-brown: 0 8px 24px rgba(93, 42, 12, 0.15);
+  --shadow-gold: 0 8px 24px rgba(212, 175, 55, 0.15);
+
+  /* 3D Effects - enhanced */
+  --shadow-3d-sm: 0 5px 15px rgba(0, 0, 0, 0.08), 0 -2px 5px rgba(255, 255, 255, 0.1);
+  --shadow-3d-md: 0 10px 20px rgba(0, 0, 0, 0.12), 0 -3px 8px rgba(255, 255, 255, 0.1);
+  --shadow-3d-lg: 0 15px 30px rgba(0, 0, 0, 0.16), 0 -5px 15px rgba(255, 255, 255, 0.1);
+  --shadow-3d-green: 0 10px 20px rgba(15, 77, 46, 0.15), 0 -3px 8px rgba(255, 255, 255, 0.1);
+  --shadow-3d-brown: 0 10px 20px rgba(93, 42, 12, 0.15), 0 -3px 8px rgba(255, 255, 255, 0.1);
 
   /* Container Padding */
   --container-padding-sm: 1.5rem;
@@ -49,15 +95,22 @@
   --container-padding-lg: 4rem;
   --container-padding-xl: 6rem;
 
-  /* 3D Perspective */
+  /* 3D Perspective - enhanced */
   --perspective-distance: 1000px;
   --transform-3d-sm: perspective(var(--perspective-distance)) rotateX(2deg);
-  --transform-3d-md: perspective(var(--perspective-distance)) rotateX(4deg);
-  --transform-3d-lg: perspective(var(--perspective-distance)) rotateX(6deg);
+  --transform-3d-md: perspective(var(--perspective-distance)) rotateX(4deg) rotateY(1deg);
+  --transform-3d-lg: perspective(var(--perspective-distance)) rotateX(6deg) rotateY(2deg);
+  --transform-hover: translateY(-5px) scale(1.02);
 
-  /* Aerial Effects */
+  /* Aerial Effects - enhanced for professional look */
   --aerial-gradient: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-  --aerial-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 -5px 15px rgba(255, 255, 255, 0.1);
+  --aerial-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 -5px 15px rgba(255, 255, 255, 0.05);
   --aerial-border: 1px solid rgba(255, 255, 255, 0.2);
   --aerial-backdrop-filter: blur(10px);
+
+  /* Professional gradients */
+  --gradient-green: linear-gradient(135deg, var(--color-green) 0%, var(--color-green-light) 100%);
+  --gradient-brown: linear-gradient(135deg, var(--color-brown) 0%, var(--color-brown-light) 100%);
+  --gradient-gold: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  --gradient-light: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-100) 100%);
 }

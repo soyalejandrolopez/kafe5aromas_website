@@ -4,9 +4,37 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="./src/assets/images/logofinal.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Removed notranslate meta tag to allow Google Translate to work -->
+    <meta name="description" content="Kafe 5 Aromas - Exceptional specialty and single-origin coffee, grown with passion and roasted to perfection." />
+    <meta name="keywords" content="coffee, specialty coffee, single-origin, Kafe 5 Aromas, premium coffee" />
+    <meta name="author" content="Kafe 5 Aromas" />
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Kafe 5 Aromas | Specialty Coffee" />
+    <meta property="og:description" content="Exceptional specialty and single-origin coffee, grown with passion and roasted to perfection." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kafe5aromas.com" />
+    <meta property="og:image" content="./src/assets/images/logofinal.png" />
+
     <title>Kafe 5 Aromas | Specialty Coffee</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" />
+
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="./src/styles/global.css" as="style" />
+
+    <!-- Prevent FOIT (Flash of Invisible Text) -->
+    <style>
+      body {
+        font-family: 'Open Sans', 'Segoe UI', sans-serif;
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

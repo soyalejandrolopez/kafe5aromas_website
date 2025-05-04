@@ -72,7 +72,7 @@ function Header() {
         borderBottom: scrolled ? "1px solid rgba(0, 0, 0, 0.05)" : "none",
       }}
     >
-      <div className="container">
+      <div className="header-container">
         <div className="header-content">
           <Link to="/" className="logo-container">
             <div

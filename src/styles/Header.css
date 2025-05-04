@@ -3,8 +3,69 @@
   display: none;
 }
 
+.header-container {
+  max-width: 1400px !important; /* Increased from default */
+  width: 95% !important;
+  margin: 0 auto;
+}
+
+.main-nav {
+  max-width: 900px !important; /* Increased width for menu */
+}
+
+.nav-list {
+  display: flex;
+  gap: 10px;
+  padding: 0 15px;
+}
+
+.nav-list li a {
+  white-space: nowrap;
+  padding: 10px 15px !important;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
+
+/* Improved typography */
+.nav-list li a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500 !important;
+}
+
+.nav-list li a.active {
+  font-weight: 600 !important;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .nav-list li a {
+    padding: 8px 12px !important;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-list {
+    gap: 5px;
+  }
+
+  .nav-list li a {
+    padding: 8px 10px !important;
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex !important;
   }
-} 
+
+  .nav-list {
+    flex-direction: column;
+  }
+
+  .nav-list li a {
+    font-size: 1rem;
+    padding: 12px 15px !important;
+  }
+}

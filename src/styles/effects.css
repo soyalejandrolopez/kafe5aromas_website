@@ -1,4 +1,4 @@
-/* Background patterns and effects */
+/* Professional Background Patterns and Effects */
 .bg-pattern-1 {
   background-color: var(--color-white);
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235D2A0C' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -14,12 +14,43 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%235D2A0C' fill-opacity='0.03'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 20.83l2.83-2.83 1.41 1.41L1.41 22.24H0v-1.41zM0 3.07l2.83-2.83 1.41 1.41L1.41 4.48H0V3.07zm20.76-2.83l2.83 2.83V4.48l-1.41-1.41-1.41-1.41zM38.59 0l2.83 2.83-1.41 1.41L37.17 1.41 38.59 0zm0 17.76l2.83 2.83-1.41 1.41-1.41-1.41 0-2.83zm0 17.76l2.83 2.83-1.41 1.41-1.41-1.41 0-2.83zM20.83 40l2.83-2.83 1.41 1.41-2.83 2.83-1.41-1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
+/* Professional Gradients */
 .bg-gradient-1 {
   background: linear-gradient(135deg, rgba(93, 42, 12, 0.05) 0%, rgba(15, 77, 46, 0.05) 100%);
 }
 
 .bg-gradient-2 {
   background: linear-gradient(to bottom, var(--color-white) 0%, var(--color-light-gray) 100%);
+}
+
+.bg-gradient-green {
+  background: var(--gradient-green);
+}
+
+.bg-gradient-brown {
+  background: var(--gradient-brown);
+}
+
+.bg-gradient-gold {
+  background: var(--gradient-gold);
+}
+
+/* Subtle texture overlay */
+.texture-overlay {
+  position: relative;
+}
+
+.texture-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='0.03' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Coffee bean pattern overlay */
@@ -314,33 +345,98 @@
   }
 }
 
-/* Card hover effects */
-.card-hover-effect {
+/* Professional Card Effects */
+
+/* Base card styles */
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
   transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+/* Card variations */
+.card-elevated {
+  box-shadow: var(--shadow-md);
+}
+
+.card-bordered {
+  border: 1px solid var(--color-gray-200);
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-hover-subtle:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-hover-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover-reveal .card-content {
+  transform: translateY(60px);
+  transition: transform 0.3s ease;
+}
+
+.card-hover-reveal:hover .card-content {
+  transform: translateY(0);
+}
+
+.card-hover-gradient {
   position: relative;
   z-index: 1;
 }
 
-.card-hover-effect::before {
+.card-hover-gradient::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-green);
+  background: var(--gradient-green);
   z-index: -1;
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.3s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.card-hover-effect:hover {
+.card-hover-gradient:hover {
   color: var(--color-white);
 }
 
-.card-hover-effect:hover::before {
-  transform: scaleY(1);
+.card-hover-gradient:hover::before {
+  opacity: 1;
+}
+
+/* Card with 3D effect */
+.card-3d {
+  transform: perspective(1000px) rotateX(0) rotateY(0);
+  transition: all 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(5deg);
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Glowing effect */
