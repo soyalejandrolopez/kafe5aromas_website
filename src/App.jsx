@@ -5,6 +5,7 @@ import './styles/effects.css';
 import './styles/responsive.css';
 import './styles/components.css';
 import './styles/utilities.css';
+import './styles/animations.css';
 import { applyPerformanceOptimizations } from './utils/performanceOptimizer';
 
 // Core Components
@@ -12,6 +13,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Loading from './components/Loading';
 import ScrollToTop from './components/ScrollToTop';
+import Confetti from './components/Confetti';
 
 // Lazy-loaded Pages for better performance
 const Home = lazy(() => import('./pages/Home'));
@@ -72,6 +74,8 @@ function App() {
       ) : (
         <div className="app">
           <Header />
+          {/* Show confetti only after loading is complete */}
+          <Confetti />
           <main className="main-content">
             <Suspense fallback={<PageLoader />}>
               <Routes>
