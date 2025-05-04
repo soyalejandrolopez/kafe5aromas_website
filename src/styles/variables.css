@@ -113,4 +113,25 @@
   --gradient-brown: linear-gradient(135deg, var(--color-brown) 0%, var(--color-brown-light) 100%);
   --gradient-gold: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
   --gradient-light: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-100) 100%);
+
+  /* Professional overlays for images */
+  --overlay-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+  --overlay-light: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.9) 100%);
+  --overlay-green: linear-gradient(to bottom, rgba(15, 77, 46, 0.7) 0%, rgba(15, 77, 46, 0.9) 100%);
+  --overlay-brown: linear-gradient(to bottom, rgba(93, 42, 12, 0.7) 0%, rgba(93, 42, 12, 0.9) 100%);
+  --overlay-gradient: linear-gradient(135deg, rgba(15, 77, 46, 0.7) 0%, rgba(93, 42, 12, 0.7) 100%);
+
+  /* Animation durations */
+  --animation-slow: 1.5s;
+  --animation-medium: 0.8s;
+  --animation-fast: 0.4s;
+
+  /* Z-index layers */
+  --z-background: -1;
+  --z-default: 1;
+  --z-foreground: 10;
+  --z-overlay: 100;
+  --z-modal: 1000;
+  --z-tooltip: 1500;
+  --z-max: 9999;
 }

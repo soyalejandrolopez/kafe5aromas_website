@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCoffee, FaWhatsapp } from 'react-icons/fa';
 import { useState } from 'react';
-import { images } from '../assets/images';
+import { localImages } from '../assets/localImages';
 
 function Contact() {
   const { t } = useTranslation();
@@ -48,16 +48,18 @@ function Contact() {
 
   return (
     <div className="contact-page">
-      <section className="hero parallax" data-aos="fade-down" style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images.contact.coffee_shop})`,
+      <section className="hero" style={{
+        height: '60vh',
+        position: 'relative',
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${localImages.contact.hero})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        color: 'white',
-        padding: 'var(--spacing-xxl) 0'
-      }}>
-        <div className="container">
-          <h1 className="section-title" style={{ color: 'white' }}>{t('contact.title')}</h1>
-          <div className="divider-gradient"></div>
+        backgroundPosition: 'center'
+      }} data-aos="fade-down">
+        <div className="container" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ textAlign: 'center' }}>
+            <h1 className="section-title" style={{ color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>{t('contact.title')}</h1>
+            <div className="divider-gradient"></div>
+          </div>
         </div>
       </section>
 
@@ -134,7 +136,7 @@ function Contact() {
                 boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
               }}>
                 <img
-                  src={images.general.coffee_cup}
+                  src={localImages.contact.location}
                   alt="Coffee Cup"
                   style={{
                     width: '100%',
@@ -249,9 +251,12 @@ function Contact() {
       </section>
 
       <section className="section" style={{
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${images.general.coffee_beans})`,
+        position: 'relative',
+        overflow: 'hidden',
+        minHeight: '600px',
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${localImages.contact.team})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center'
       }}>
         <div className="container">
           <div className="connect-content" style={{
@@ -261,36 +266,48 @@ function Contact() {
             gap: 'var(--spacing-xl)'
           }}>
             <div className="text-center" data-aos="zoom-in">
-              <h2>Connect With Us</h2>
+              <h2 style={{ color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>Connect With Us</h2>
               <div className="divider"></div>
-              <p style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <p style={{ maxWidth: '800px', margin: '0 auto', color: 'white', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)' }}>
                 We'd love to hear from you! Whether you have questions about our coffee,
                 want to learn more about our partnerships with farmers, or are interested
                 in wholesale opportunities, we're here to help.
               </p>
             </div>
 
-            <div className="coffee-beans-image" data-aos="fade-up" style={{
+            <div className="drone-images-grid" data-aos="fade-up" style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: 'var(--spacing-md)',
               width: '100%',
-              maxWidth: '800px',
-              height: '300px',
-              borderRadius: 'var(--border-radius-md)',
-              overflow: 'hidden',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
-              margin: '0 auto'
+              marginBottom: 'var(--spacing-xxl)'
             }}>
-              <img
-                src={images.values.quality}
-                alt="Coffee Quality"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  transition: 'transform 0.5s ease',
-                }}
-                onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-                onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-              />
+              {[
+                localImages.contact.hero,
+                localImages.contact.location,
+                localImages.contact.team,
+                localImages.general.beans
+              ].map((image, index) => (
+                <div key={index} style={{
+                  height: '250px',
+                  borderRadius: 'var(--border-radius-md)',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)'
+                }}>
+                  <img
+                    src={image}
+                    alt={`Contact Image ${index + 1}`}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.5s ease',
+                    }}
+                    onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                    onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

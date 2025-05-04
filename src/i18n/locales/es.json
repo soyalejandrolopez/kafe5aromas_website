@@ -17,7 +17,16 @@
   },
   "home": {
     "welcome": "Descubre la Esencia",
-    "tagline": "Café excepcional de especialidad y origen único"
+    "tagline": "Café excepcional de especialidad y origen único",
+    "discover": "Descubre",
+    "ourEssence": "Nuestra Esencia",
+    "feature1Title": "Calidad Premium",
+    "feature1Description": "Obtenemos solo los mejores cafés de especialidad y origen único de todo el mundo.",
+    "feature2Title": "Prácticas Sostenibles",
+    "feature2Description": "Estamos comprometidos con prácticas ambientalmente sostenibles en toda nuestra cadena de suministro.",
+    "feature3Title": "Asociaciones Directas",
+    "feature3Description": "Nos asociamos directamente con los agricultores para garantizar precios justos y apoyo.",
+    "learnMore": "Saber Más"
   },
   "mission": {
     "title": "Nuestra Misión",

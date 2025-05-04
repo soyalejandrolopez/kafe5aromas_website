@@ -4,7 +4,8 @@ import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import i18n from "../i18n/i18n"
-import { FaGlobeAmericas } from "react-icons/fa"
+import { FaGlobeAmericas, FaBars, FaTimes } from "react-icons/fa"
+import { localImages } from "../assets/localImages"
 import logo from "../assets/images/logofinal.png"
 import LanguageSwitcher from "./LanguageSwitcher"
 import '../styles/Header.css'
@@ -138,79 +139,21 @@ function Header() {
               borderRadius: "50%",
               width: "48px",
               height: "48px",
+              display: "flex",
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
               transition: "all 0.3s ease",
-              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+              boxShadow: "var(--shadow-md)",
               position: "relative",
               zIndex: 1001
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.1)";
-              e.currentTarget.style.boxShadow = "0 6px 15px rgba(0, 0, 0, 0.15)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.1)";
-            }}
           >
-            <span
-              className={`hamburger ${isMenuOpen ? "active" : ""}`}
-              style={{
-                backgroundColor: "var(--color-green)",
-                height: "2px",
-                width: "24px",
-                display: "block",
-                position: "relative",
-                transition: "all 0.3s ease",
-                transform: isMenuOpen ? "rotate(45deg)" : "rotate(0)",
-              }}
-            >
-              {!isMenuOpen && (
-                <>
-                  <span
-                    style={{
-                      backgroundColor: "var(--color-green)",
-                      height: "2px",
-                      width: "24px",
-                      display: "block",
-                      position: "absolute",
-                      top: "-8px",
-                      left: 0,
-                      transition: "all 0.3s ease",
-                    }}
-                  ></span>
-                  <span
-                    style={{
-                      backgroundColor: "var(--color-green)",
-                      height: "2px",
-                      width: "24px",
-                      display: "block",
-                      position: "absolute",
-                      top: "8px",
-                      left: 0,
-                      transition: "all 0.3s ease",
-                    }}
-                  ></span>
-                </>
-              )}
-              {isMenuOpen && (
-                <span
-                  style={{
-                    backgroundColor: "var(--color-green)",
-                    height: "2px",
-                    width: "24px",
-                    display: "block",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    transition: "all 0.3s ease",
-                    transform: "rotate(90deg)",
-                  }}
-                ></span>
-              )}
-            </span>
+            {isMenuOpen ? (
+              <FaTimes size={20} />
+            ) : (
+              <FaBars size={20} />
+            )}
           </button>
 
           <nav

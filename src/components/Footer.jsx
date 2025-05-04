@@ -15,8 +15,7 @@ import {
 } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
 import logo from "../assets/images/logofinal.png";
-// Usar una imagen más pequeña o un color de fondo en lugar de la imagen grande
-// import backgroundImage from "../assets/images/DJI_20240523145421_0001_D.JPG";
+import { localImages } from "../assets/localImages";
 import '../styles/animations.css';
 
 function Footer() {
@@ -29,19 +28,21 @@ function Footer() {
       position: "relative",
       paddingTop: "80px",
       marginTop: "50px",
-      overflow: "hidden"
+      overflow: "hidden",
+      boxShadow: "0 -10px 30px rgba(0, 0, 0, 0.2)"
     }}>
-      {/* Background Color instead of Image */}
+      {/* Background Image */}
       <div style={{
         position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundColor: "#111",
+        backgroundImage: `url(${localImages.drone.farm11})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        opacity: 0.1,
+        backgroundRepeat: "no-repeat",
+        opacity: 0.2,
         zIndex: 1
       }}></div>
 
@@ -52,7 +53,7 @@ function Footer() {
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundColor: "rgba(26, 26, 26, 0.97)",
+        background: "linear-gradient(to bottom, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.98))",
         zIndex: 2
       }}></div>
 
@@ -63,13 +64,21 @@ function Footer() {
         left: 0,
         width: "100%",
         height: "70px",
-        backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%234c7d4d'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%234c7d4d'%3E%3C/path%3E%3C/svg%3E\")",
+        backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.3' fill='%234c7d4d'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.6' fill='%234c7d4d'%3E%3C/path%3E%3C/svg%3E\")",
         backgroundSize: "100% 100%",
         animation: "wave 15s linear infinite",
-        zIndex: 3
+        zIndex: 3,
+        filter: "drop-shadow(0 -5px 10px rgba(0, 0, 0, 0.1))"
       }}></div>
 
-      <div className="container" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 30px", position: "relative", zIndex: 3 }}>
+      <div className="container" style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "0 30px",
+        position: "relative",
+        zIndex: 3,
+        backdropFilter: "blur(5px)"
+      }}>
         <div className="footer-content" style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
@@ -319,7 +328,12 @@ function Footer() {
           padding: "20px 0",
           textAlign: "center",
           color: "#fff",
-          fontSize: "0.9rem"
+          fontSize: "0.9rem",
+          position: "relative",
+          backdropFilter: "blur(5px)",
+          background: "rgba(0,0,0,0.1)",
+          borderRadius: "10px",
+          marginTop: "20px"
         }}>
           <p style={{ marginBottom: "10px" }}>
             Made with <FaHeart style={{ color: "#4c7d4d", margin: "0 5px" }} /> by Kafe 5 Aromas

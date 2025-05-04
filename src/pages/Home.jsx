@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { FaCoffee, FaLeaf, FaHandshake, FaSeedling, FaStar, FaMugHot } from 'react-icons/fa';
+import { FaCoffee, FaLeaf, FaHandshake, FaStar, FaMugHot, FaAward, FaSeedling } from 'react-icons/fa';
+import { localImages } from '../assets/localImages';
 import { images } from '../assets/images';
 import { useEffect, useState } from 'react';
 import '../styles/animations.css';
@@ -8,30 +9,20 @@ import '../styles/animations.css';
 function Home() {
   const { t } = useTranslation();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
-
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const isMobile = windowWidth <= 768;
-
-  // Cálculo para el efecto de paralaje
-  const backgroundPositionY = `calc(50% + ${scrollPosition * 0.1}px)`;
 
   // Efecto para inicializar animaciones adicionales
   useEffect(() => {
@@ -104,137 +95,120 @@ function Home() {
         zIndex: 1
       }}>
 
-      {/* Hero Section - Mejorado con efectos 3D y animaciones */}
-      <section className="hero hero-animated container-3d" style={{
-        height: '100vh',
-        position: 'relative',
-        color: 'white',
-        marginTop: '-80px',
-        paddingTop: '80px',
-        overflow: 'hidden',
-        backgroundImage: `url(${images.drone.farm1})`,
+      {/* Enhanced Hero Section with Professional Design and High-Quality Background */}
+      <section className="hero" style={{
+        backgroundImage: `url(${localImages.drone.farm3})`,
         backgroundSize: 'cover',
-        backgroundPosition: `center ${backgroundPositionY}`,
-        backgroundAttachment: 'fixed',
-        transition: 'background-position 0.1s ease-out'
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}>
-        {/* Overlay para la sección hero */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%)',
-          zIndex: 1
+        {/* Using background-image instead of img tag for better coverage */}
+
+        {/* Professional Overlay with Gradient - Darker for better text contrast */}
+        <div className="hero-overlay" style={{
+          background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%)'
         }}></div>
 
-        {/* Contenido del hero con z-index superior */}
-        <div style={{
-          position: 'relative',
-          zIndex: 2,
-          height: '100%',
-          width: '100%'
-        }}>
-          {/* Elementos decorativos flotantes */}
-          <div className="aerial-elements" style={{ position: 'absolute', width: '100%', height: '100%', zIndex: 1 }}>
-            <div className="coffee-bean float-slow" style={{
-              position: 'absolute',
-              top: '15%',
-              left: '10%',
-              transform: 'rotate(-15deg)'
-            }}>
-              <FaCoffee size={40} color="rgba(255,255,255,0.2)" />
-            </div>
-
-            <div className="coffee-leaf float" style={{
-              position: 'absolute',
-              top: '60%',
-              right: '15%',
-              transform: 'rotate(25deg)'
-            }}>
-              <FaLeaf size={50} color="rgba(255,255,255,0.2)" />
-            </div>
-
-            <div className="coffee-mug float-fast" style={{
-              position: 'absolute',
-              bottom: '20%',
-              left: '20%'
-            }}>
-              <FaMugHot size={35} color="rgba(255,255,255,0.2)" />
-            </div>
+        {/* Decorative Elements */}
+        <div className="position-absolute w-100 h-100 z-foreground" style={{pointerEvents: 'none'}}>
+          <div className="coffee-bean float-3d position-absolute" style={{top: '15%', left: '10%'}}>
+            <FaCoffee size={40} className="text-white opacity-25" />
           </div>
 
-          <div className="container" style={{
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
-            zIndex: 2,
-            padding: '0 20px'
+          <div className="coffee-leaf float position-absolute" style={{top: '60%', right: '15%'}}>
+            <FaLeaf size={50} className="text-white opacity-25" />
+          </div>
+
+          <div className="coffee-mug float-fast position-absolute" style={{bottom: '20%', left: '20%'}}>
+            <FaMugHot size={35} className="text-white opacity-25" />
+          </div>
+
+          <div className="position-absolute" style={{top: '30%', right: '20%'}}>
+            <FaStar size={30} className="text-white opacity-25 float-slow" />
+          </div>
+
+          <div className="position-absolute" style={{bottom: '30%', right: '30%'}}>
+            <FaAward size={35} className="text-white opacity-25 float" />
+          </div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="hero-content">
+          <h1 className="hero-title font-secondary text-white slide-up" style={{
+            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+            marginBottom: '1.5rem',
+            letterSpacing: '1px',
+            textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
           }}>
-            <div className="hero-content text-center" data-aos="fade-up" data-aos-duration="1200" style={{
-              maxWidth: '800px'
+            Experience the Essence
+          </h1>
+
+          <div className="divider-gradient glow mx-auto slide-up delay-200" style={{
+            marginBottom: '2rem',
+            width: '120px',
+            height: '4px'
+          }}></div>
+
+          <p className="hero-subtitle slide-up delay-300" style={{
+            fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
+            marginBottom: '3rem',
+            maxWidth: '800px',
+            margin: '0 auto 3rem auto',
+            lineHeight: '1.6',
+            fontWeight: '300'
+          }}>
+            {t('home.tagline')}
+          </p>
+
+          <div className="d-flex justify-content-center gap-5 flex-wrap slide-up delay-500" style={{ marginTop: '2rem' }}>
+            <Link to="/about" className="btn btn-primary btn-lg" style={{
+              minWidth: '180px',
+              margin: '0 1.5rem',
+              padding: '0.8rem 2rem',
+              fontSize: '1.1rem',
+              fontWeight: '600',
+              borderRadius: '50px',
+              boxShadow: '0 8px 20px rgba(0, 0, 0, 0.3)',
+              transition: 'all 0.3s ease',
+              border: 'none'
             }}>
-              <h1 className="text-gradient shadow-3d" style={{
-                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-                marginBottom: '1.5rem',
-                fontWeight: '800',
-                letterSpacing: '2px',
-                lineHeight: '1.2',
-                color: 'white',
-                background: 'none',
-                WebkitBackgroundClip: 'unset',
-                WebkitTextFillColor: 'white'
-              }}>
-                Experience the Essence
-              </h1>
+              {t('nav.about')}
+            </Link>
 
-              <div className="divider-gradient glow"></div>
+            <Link to="/mission" className="btn btn-outline btn-lg" style={{
+              minWidth: '180px',
+              margin: '0 1.5rem',
+              padding: '0.8rem 2rem',
+              fontSize: '1.1rem',
+              fontWeight: '600',
+              borderRadius: '50px',
+              boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)',
+              transition: 'all 0.3s ease',
+              border: '2px solid white',
+              color: 'white'
+            }}>
+              {t('nav.mission')}
+            </Link>
+          </div>
+        </div>
 
-              <p className="hero-tagline" data-aos="fade-up" data-aos-delay="400" style={{
-                fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
-                marginBottom: '2.5rem',
-                lineHeight: '1.6',
-                maxWidth: '600px',
-                margin: '0 auto 2.5rem auto',
-                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                color: 'white'
-              }}>
-                {t('home.tagline')}
-              </p>
-
-              <div className="hero-buttons" data-aos="fade-up" data-aos-delay="600" style={{
-                display: 'flex',
-                gap: '1.5rem',
-                justifyContent: 'center',
-                flexWrap: 'wrap'
-              }}>
-                <Link to="/about" className="btn glow" style={{
-                  padding: '1rem 2.5rem',
-                  fontSize: 'clamp(1rem, 1.5vw, 1.2rem)',
-                  fontWeight: '600',
-                  borderRadius: '50px',
-                  letterSpacing: '1px'
-                }}>
-                  {t('nav.about')}
-                </Link>
-              </div>
-            </div>
+        {/* Scroll Indicator */}
+        <div className="position-absolute bottom-0 left-0 w-100 d-flex justify-content-center pb-4 slide-up delay-700">
+          <div className="scroll-indicator">
+            <div className="scroll-dot"></div>
           </div>
         </div>
       </section>
 
-      {/* Features Section - Nueva sección con características destacadas */}
-      <section className="section values-section" style={{
+      {/* Our Essence Section - Professional Design with Dark Opacity */}
+      <section className="section bg-gray-100 py-6" style={{
         position: 'relative',
         overflow: 'hidden',
-        padding: 'var(--spacing-xxl) 0',
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${images.drone.farm9})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${localImages.drone.farm9})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        color: 'white'
       }}>
         {/* Decorative elements */}
         <div className="section-decoration" style={{
@@ -260,26 +234,26 @@ function Home() {
         }}></div>
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="section-header text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-            <span className="section-subtitle" data-aos="fade-up" style={{
+          <div className="section-header">
+            <span className="section-subtitle slide-up" style={{
+              color: 'white',
               display: 'block',
-              color: 'var(--color-green)',
-              fontWeight: '500',
               fontSize: '1.1rem',
-              marginBottom: 'var(--spacing-sm)',
+              fontWeight: '500',
+              marginBottom: '0.5rem',
               textTransform: 'uppercase',
               letterSpacing: '2px'
-            }}>Our Philosophy</span>
+            }}>{t('home.discover')}</span>
 
-            <h2 className="section-title" data-aos="fade-up" data-aos-delay="100" style={{
-              color: 'var(--color-brown)',
+            <h2 className="section-title slide-up delay-100" style={{
+              color: 'white',
               fontSize: 'clamp(2rem, 4vw, 2.5rem)',
-              marginBottom: 'var(--spacing-md)',
+              marginBottom: '1rem',
+              fontWeight: '600',
               position: 'relative',
               display: 'inline-block'
-            }}>
-              Our Essence
-              <span className="title-underline" style={{
+            }}>{t('home.ourEssence')}
+              <span style={{
                 position: 'absolute',
                 bottom: '-10px',
                 left: '50%',
@@ -291,236 +265,77 @@ function Home() {
               }}></span>
             </h2>
 
-            <p data-aos="fade-up" data-aos-delay="200" style={{
+            <p className="section-description slide-up delay-200" style={{
+              color: 'rgba(255, 255, 255, 0.9)',
               maxWidth: '700px',
-              margin: '0 auto var(--spacing-lg) auto',
+              margin: '1.5rem auto',
               fontSize: 'clamp(1rem, 1.5vw, 1.1rem)',
-              lineHeight: '1.8',
-              color: 'var(--color-dark-gray)'
+              lineHeight: '1.8'
             }}>
               At the heart of Kafe5aromas lies our commitment to quality, sustainability, and excellence in every aspect of coffee production.
             </p>
           </div>
 
-          <div className="values-cards" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: 'var(--spacing-lg)',
-            maxWidth: '1200px',
-            margin: '0 auto'
-          }}>
-            <div className="value-card" data-aos="fade-up" data-aos-delay="100" style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
-              borderRadius: 'var(--border-radius-md)',
-              padding: 'var(--spacing-xl)',
-              transition: 'all 0.3s ease',
-              border: '1px solid rgba(76, 125, 77, 0.1)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
-            }}>
-              {/* Decorative background */}
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                right: 0,
-                width: '100px',
-                height: '100px',
-                background: 'radial-gradient(circle, rgba(76, 125, 77, 0.1) 0%, rgba(76, 125, 77, 0) 70%)',
-                zIndex: 0
-              }}></div>
-
-              <div className="coffee-bean-icon" style={{
-                width: '60px',
-                height: '60px',
-                borderRadius: '50%',
-                backgroundColor: 'rgba(76, 125, 77, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: 'var(--spacing-md)',
-                position: 'relative',
-                zIndex: 1
-              }}>
-                <FaCoffee size={28} color="var(--color-green)" />
+          <div className="row mt-5">
+            {/* Feature 1 */}
+            <div className="col-12 col-md-6 col-lg-4 mb-4">
+              <div className="feature-box slide-up">
+                <div className="feature-icon">
+                  <FaCoffee />
+                </div>
+                <h3 className="feature-title">{t('home.feature1Title')}</h3>
+                <p className="feature-text">
+                  {t('home.feature1Description')}
+                </p>
               </div>
-
-              <h3 style={{
-                color: 'var(--color-brown)',
-                fontSize: '1.3rem',
-                marginBottom: 'var(--spacing-sm)',
-                position: 'relative',
-                zIndex: 1
-              }}>Premium Coffee</h3>
-
-              <p style={{
-                color: 'var(--color-dark-gray)',
-                lineHeight: '1.7',
-                position: 'relative',
-                zIndex: 1
-              }}>Selection of the finest coffee beans, roasted to perfection.</p>
             </div>
 
-            <div className="value-card" data-aos="fade-up" data-aos-delay="200" style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
-              borderRadius: 'var(--border-radius-md)',
-              padding: 'var(--spacing-xl)',
-              transition: 'all 0.3s ease',
-              border: '1px solid rgba(76, 125, 77, 0.1)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
-            }}>
-              {/* Decorative background */}
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                right: 0,
-                width: '100px',
-                height: '100px',
-                background: 'radial-gradient(circle, rgba(76, 125, 77, 0.1) 0%, rgba(76, 125, 77, 0) 70%)',
-                zIndex: 0
-              }}></div>
-
-              <div className="coffee-bean-icon" style={{
-                width: '60px',
-                height: '60px',
-                borderRadius: '50%',
-                backgroundColor: 'rgba(76, 125, 77, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: 'var(--spacing-md)',
-                position: 'relative',
-                zIndex: 1
-              }}>
-                <FaLeaf size={28} color="var(--color-green)" />
+            {/* Feature 2 */}
+            <div className="col-12 col-md-6 col-lg-4 mb-4">
+              <div className="feature-box slide-up delay-200">
+                <div className="feature-icon">
+                  <FaLeaf />
+                </div>
+                <h3 className="feature-title">{t('home.feature2Title')}</h3>
+                <p className="feature-text">
+                  {t('home.feature2Description')}
+                </p>
               </div>
-
-              <h3 style={{
-                color: 'var(--color-brown)',
-                fontSize: '1.3rem',
-                marginBottom: 'var(--spacing-sm)',
-                position: 'relative',
-                zIndex: 1
-              }}>Sustainability</h3>
-
-              <p style={{
-                color: 'var(--color-dark-gray)',
-                lineHeight: '1.7',
-                position: 'relative',
-                zIndex: 1
-              }}>Committed to environmental care and fair trade practices.</p>
             </div>
 
-            <div className="value-card" data-aos="fade-up" data-aos-delay="300" style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
-              borderRadius: 'var(--border-radius-md)',
-              padding: 'var(--spacing-xl)',
-              transition: 'all 0.3s ease',
-              border: '1px solid rgba(76, 125, 77, 0.1)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
-            }}>
-              {/* Decorative background */}
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                right: 0,
-                width: '100px',
-                height: '100px',
-                background: 'radial-gradient(circle, rgba(76, 125, 77, 0.1) 0%, rgba(76, 125, 77, 0) 70%)',
-                zIndex: 0
-              }}></div>
-
-              <div className="coffee-bean-icon" style={{
-                width: '60px',
-                height: '60px',
-                borderRadius: '50%',
-                backgroundColor: 'rgba(76, 125, 77, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: 'var(--spacing-md)',
-                position: 'relative',
-                zIndex: 1
-              }}>
-                <FaStar size={28} color="var(--color-green)" />
+            {/* Feature 3 */}
+            <div className="col-12 col-md-6 col-lg-4 mb-4">
+              <div className="feature-box slide-up delay-300">
+                <div className="feature-icon">
+                  <FaHandshake />
+                </div>
+                <h3 className="feature-title">{t('home.feature3Title')}</h3>
+                <p className="feature-text">
+                  {t('home.feature3Description')}
+                </p>
               </div>
-
-              <h3 style={{
-                color: 'var(--color-brown)',
-                fontSize: '1.3rem',
-                marginBottom: 'var(--spacing-sm)',
-                position: 'relative',
-                zIndex: 1
-              }}>Superior Quality</h3>
-
-              <p style={{
-                color: 'var(--color-dark-gray)',
-                lineHeight: '1.7',
-                position: 'relative',
-                zIndex: 1
-              }}>Exceptional quality standards in every cup.</p>
             </div>
           </div>
 
-          <div className="text-center" style={{ marginTop: 'var(--spacing-xl)' }} data-aos="fade-up" data-aos-delay="400">
-            <Link to="/about" className="btn glow" style={{
-              backgroundColor: 'var(--color-green)',
-              color: 'white',
-              padding: 'var(--spacing-md) var(--spacing-xl)',
-              borderRadius: '30px',
-              fontSize: '1.1rem',
-              fontWeight: '600',
-              boxShadow: '0 10px 20px rgba(76, 125, 77, 0.2)',
-              border: 'none',
-              transition: 'all 0.3s ease',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 'var(--spacing-sm)'
-            }}>
-              Learn More
-              <span style={{ fontSize: '1.2rem' }}>→</span>
+          <div className="text-center mt-5 slide-up delay-400">
+            <Link to="/about" className="btn btn-primary">
+              {t('home.learnMore')}
+              <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Mission Section - Modern Design */}
+      {/* Mission Section - Modern Design with Dark Opacity */}
       <section className="section values-section" style={{
         position: 'relative',
         overflow: 'hidden',
         padding: 'var(--spacing-xxl) 0',
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${images.drone.farm7})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${localImages.drone.farm7})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        color: 'white'
       }}>
         {/* Decorative elements */}
         <div className="section-decoration" style={{
@@ -549,7 +364,7 @@ function Home() {
           <div className="section-header text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
             <span className="section-subtitle" data-aos="fade-up" style={{
               display: 'block',
-              color: 'var(--color-green)',
+              color: 'var(--color-light-green)',
               fontWeight: '500',
               fontSize: '1.1rem',
               marginBottom: 'var(--spacing-sm)',
@@ -558,7 +373,7 @@ function Home() {
             }}>Our Mission</span>
 
             <h2 className="section-title" data-aos="fade-up" data-aos-delay="100" style={{
-              color: 'var(--color-brown)',
+              color: 'white',
               fontSize: 'clamp(2rem, 4vw, 2.5rem)',
               marginBottom: 'var(--spacing-md)',
               position: 'relative',
@@ -582,7 +397,7 @@ function Home() {
               margin: '0 auto var(--spacing-lg) auto',
               fontSize: 'clamp(1rem, 1.5vw, 1.1rem)',
               lineHeight: '1.8',
-              color: 'var(--color-dark-gray)'
+              color: 'rgba(255, 255, 255, 0.9)'
             }}>
               We are dedicated to delivering exceptional coffee experiences while promoting sustainable practices
               and supporting coffee-growing communities worldwide. Our commitment goes beyond the cup –
@@ -598,14 +413,15 @@ function Home() {
             margin: '0 auto'
           }}>
             <div className="value-card" data-aos="fade-up" data-aos-delay="100" style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3)',
               borderRadius: 'var(--border-radius-md)',
               padding: 'var(--spacing-xl)',
               transition: 'all 0.3s ease',
-              border: '1px solid rgba(76, 125, 77, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              backdropFilter: 'blur(5px)'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-10px)';
@@ -642,7 +458,7 @@ function Home() {
               </div>
 
               <h3 style={{
-                color: 'var(--color-brown)',
+                color: 'white',
                 fontSize: '1.3rem',
                 marginBottom: 'var(--spacing-sm)',
                 position: 'relative',
@@ -650,7 +466,7 @@ function Home() {
               }}>Premium Coffee</h3>
 
               <p style={{
-                color: 'var(--color-dark-gray)',
+                color: 'rgba(255, 255, 255, 0.9)',
                 lineHeight: '1.7',
                 position: 'relative',
                 zIndex: 1
@@ -658,14 +474,15 @@ function Home() {
             </div>
 
             <div className="value-card" data-aos="fade-up" data-aos-delay="200" style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3)',
               borderRadius: 'var(--border-radius-md)',
               padding: 'var(--spacing-xl)',
               transition: 'all 0.3s ease',
-              border: '1px solid rgba(76, 125, 77, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              backdropFilter: 'blur(5px)'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-10px)';
@@ -702,7 +519,7 @@ function Home() {
               </div>
 
               <h3 style={{
-                color: 'var(--color-brown)',
+                color: 'white',
                 fontSize: '1.3rem',
                 marginBottom: 'var(--spacing-sm)',
                 position: 'relative',
@@ -710,7 +527,7 @@ function Home() {
               }}>Sustainability</h3>
 
               <p style={{
-                color: 'var(--color-dark-gray)',
+                color: 'rgba(255, 255, 255, 0.9)',
                 lineHeight: '1.7',
                 position: 'relative',
                 zIndex: 1
@@ -718,14 +535,15 @@ function Home() {
             </div>
 
             <div className="value-card" data-aos="fade-up" data-aos-delay="300" style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3)',
               borderRadius: 'var(--border-radius-md)',
               padding: 'var(--spacing-xl)',
               transition: 'all 0.3s ease',
-              border: '1px solid rgba(76, 125, 77, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              backdropFilter: 'blur(5px)'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-10px)';
@@ -762,7 +580,7 @@ function Home() {
               </div>
 
               <h3 style={{
-                color: 'var(--color-brown)',
+                color: 'white',
                 fontSize: '1.3rem',
                 marginBottom: 'var(--spacing-sm)',
                 position: 'relative',
@@ -770,7 +588,7 @@ function Home() {
               }}>Superior Quality</h3>
 
               <p style={{
-                color: 'var(--color-dark-gray)',
+                color: 'rgba(255, 255, 255, 0.9)',
                 lineHeight: '1.7',
                 position: 'relative',
                 zIndex: 1
@@ -816,7 +634,7 @@ function Home() {
                 boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
               }}>
                 <img
-                  src={images.mission.farmers}
+                  src={localImages.mission.farmers}
                   alt="Coffee Farmers"
                   style={{
                     width: '100%',
@@ -836,7 +654,7 @@ function Home() {
                 boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
               }}>
                 <img
-                  src={images.drone.farm2}
+                  src={localImages.drone.farm2}
                   alt="Coffee Farm"
                   style={{
                     width: '100%',
@@ -856,7 +674,7 @@ function Home() {
                 boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
               }}>
                 <img
-                  src={images.drone.farm3}
+                  src={localImages.drone.farm3}
                   alt="Coffee Processing"
                   style={{
                     width: '100%',
@@ -1516,7 +1334,7 @@ function Home() {
                 position: 'relative'
               }}>
                 <img
-                  src={images.drone.farm3}
+                  src={localImages.drone.farm5}
                   alt="Specialty Coffee"
                   style={{
                     width: '100%',
@@ -1573,10 +1391,10 @@ function Home() {
                   marginBottom: 'var(--spacing-xxl)' // Añadido espaciado adicional después del grid
                 }}>
                   {[
-                    images.drone.farm1,
-                    images.drone.farm2,
-                    images.drone.farm3,
-                    images.drone.farm4
+                    localImages.drone.farm1,
+                    localImages.drone.farm2,
+                    localImages.drone.farm3,
+                    localImages.drone.farm4
                   ].map((image, index) => (
                     <div key={index} className="gallery-item" data-aos="fade-up" data-aos-delay={100 * (index + 1)} style={{
                       height: '250px',

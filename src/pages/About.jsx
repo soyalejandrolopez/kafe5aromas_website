@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { FaCoffee, FaUsers, FaHandHoldingHeart, FaLeaf } from 'react-icons/fa';
-import { images } from '../assets/images';
+import { localImages } from '../assets/localImages';
 
 function About() {
   const { t } = useTranslation();
@@ -30,10 +30,18 @@ function About() {
 
   return (
     <div className="about-page">
-      <section className="hero bg-pattern-3 parallax" data-aos="fade-down">
-        <div className="container">
-          <h1 className="section-title text-gradient">{t('about.title')}</h1>
-          <div className="divider-gradient"></div>
+      <section className="hero" style={{
+        height: '60vh',
+        position: 'relative',
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${localImages.about.hero})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }} data-aos="fade-down">
+        <div className="container" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ textAlign: 'center' }}>
+            <h1 className="section-title" style={{ color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>{t('about.title')}</h1>
+            <div className="divider-gradient"></div>
+          </div>
         </div>
       </section>
 
@@ -98,15 +106,18 @@ function About() {
                   }}
                 >
                   <img
-                    src={images.about.team}
+                    src={localImages.about.team}
                     alt="Coffee Team"
-                    className="pulse"
                     style={{
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
                       borderRadius: 'var(--border-radius-md)',
+                      transition: 'transform 0.5s ease',
                     }}
+                    onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                    onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+
                   />
                 </div>
               </div>
@@ -115,12 +126,19 @@ function About() {
         </div>
       </section>
 
-      <section className="section bg-gradient-1 animated-bg">
+      <section className="section" style={{
+        position: 'relative',
+        overflow: 'hidden',
+        minHeight: '600px',
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${localImages.about.process})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
         <div className="container">
-          <div className="team-section text-center" data-aos="fade-up">
-            <h2>Our Team</h2>
+          <div className="team-section text-center" data-aos="zoom-in">
+            <h2 style={{ color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>Our Team</h2>
             <div className="divider"></div>
-            <p style={{ maxWidth: '800px', margin: '0 auto', marginBottom: 'var(--spacing-xl)' }}>
+            <p style={{ maxWidth: '800px', margin: '0 auto', marginBottom: 'var(--spacing-xl)', color: 'white', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)' }}>
               Our dedicated team of coffee enthusiasts works tirelessly to bring you the finest
               specialty and single-origin coffees while supporting sustainable farming practices.
             </p>
@@ -131,18 +149,23 @@ function About() {
               flexWrap: 'wrap',
               gap: 'var(--spacing-lg)'
             }}>
-              {[1, 2, 3].map((member, index) => (
+              {[
+                localImages.about.team,
+                localImages.about.process,
+                localImages.about.expertise
+              ].map((image, index) => (
                 <div
                   key={index}
-                  className="team-member hover-lift"
-                  data-aos="flip-left"
+                  className="team-member"
+                  data-aos="fade-up"
                   data-aos-delay={100 * index}
                   style={{
                     width: '250px',
-                    backgroundColor: 'var(--color-white)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.15)',
                     borderRadius: 'var(--border-radius-md)',
                     overflow: 'hidden',
-                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
+                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+                    backdropFilter: 'blur(5px)'
                   }}
                 >
                   <div style={{
@@ -151,23 +174,22 @@ function About() {
                     position: 'relative'
                   }}>
                     <img
-                      src={images.about.coffee_tasting}
+                      src={image}
                       alt={`Team Member ${index + 1}`}
                       style={{
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        filter: `hue-rotate(${index * 60}deg)`,
                         transition: 'transform 0.5s ease',
                       }}
                       onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
                       onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                     />
                   </div>
-                  <div style={{ padding: 'var(--spacing-md)' }}>
-                    <p style={{ color: 'var(--color-green)', marginBottom: 'var(--spacing-xs)' }}>
-
-                    </p>
+                  <div style={{ padding: 'var(--spacing-md)', color: 'white' }}>
+                    <h4 style={{ color: 'white', marginBottom: 'var(--spacing-xs)' }}>
+                      Coffee Expert {index + 1}
+                    </h4>
                     <p>Passionate about bringing the best coffee experiences to our customers.</p>
                   </div>
                 </div>
@@ -177,29 +199,47 @@ function About() {
         </div>
       </section>
 
-      <section className="section bg-pattern-2">
+      <section className="section" style={{
+        padding: 'var(--spacing-xxl) 0',
+        background: 'linear-gradient(135deg, #f5f7fa 0%, #f1f3f5 100%)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
         <div className="container">
-          <div className="coffee-tasting-image" data-aos="fade-up" style={{
+          <div className="drone-images-grid" data-aos="fade-up" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: 'var(--spacing-md)',
             width: '100%',
-            maxWidth: '800px',
-            height: '300px',
-            margin: '0 auto',
-            borderRadius: 'var(--border-radius-md)',
-            overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
+            maxWidth: '1000px',
+            margin: '0 auto'
           }}>
-            <img
-              src={images.general.coffee_beans}
-              alt="Coffee Beans"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                transition: 'transform 0.5s ease',
-              }}
-              onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-            />
+            {[
+              localImages.general.beans,
+              localImages.general.cup,
+              localImages.general.farm,
+              localImages.general.brewing
+            ].map((image, index) => (
+              <div key={index} style={{
+                height: '250px',
+                borderRadius: 'var(--border-radius-md)',
+                overflow: 'hidden',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)'
+              }}>
+                <img
+                  src={image}
+                  alt={`Coffee Image ${index + 1}`}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
+                  onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                  onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

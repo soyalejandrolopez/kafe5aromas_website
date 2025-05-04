@@ -17,7 +17,16 @@
   },
   "home": {
     "welcome": "Experience the Essence",
-    "tagline": "Exceptional specialty and single-origin coffee"
+    "tagline": "Exceptional specialty and single-origin coffee",
+    "discover": "Discover",
+    "ourEssence": "Our Essence",
+    "feature1Title": "Premium Quality",
+    "feature1Description": "We source only the finest specialty and single-origin coffees from around the world.",
+    "feature2Title": "Sustainable Practices",
+    "feature2Description": "We are committed to environmentally sustainable practices throughout our supply chain.",
+    "feature3Title": "Direct Partnerships",
+    "feature3Description": "We partner directly with farmers to ensure fair pricing and support.",
+    "learnMore": "Learn More"
   },
   "mission": {
     "title": "Our Mission",

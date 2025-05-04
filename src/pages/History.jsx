@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { FaCoffee, FaHistory, FaCalendarAlt, FaSeedling } from 'react-icons/fa';
-import { images } from '../assets/images';
+import { localImages } from '../assets/localImages';
 
 function History() {
   const { t } = useTranslation();
@@ -30,10 +30,18 @@ function History() {
 
   return (
     <div className="history-page">
-      <section className="hero bg-pattern-1 parallax" data-aos="fade-down">
-        <div className="container">
-          <h1 className="section-title text-gradient">{t('history.title')}</h1>
-          <div className="divider-gradient"></div>
+      <section className="hero" style={{
+        height: '60vh',
+        position: 'relative',
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${localImages.history.hero})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }} data-aos="fade-down">
+        <div className="container" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ textAlign: 'center' }}>
+            <h1 className="section-title" style={{ color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>{t('history.title')}</h1>
+            <div className="divider-gradient"></div>
+          </div>
         </div>
       </section>
 
@@ -52,15 +60,18 @@ function History() {
                   }}
                 >
                   <img
-                    src={images.history.vintage}
+                    src={localImages.history.origins}
                     alt="Coffee History"
-                    className="pulse"
                     style={{
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
                       borderRadius: 'var(--border-radius-md)',
+                      transition: 'transform 0.5s ease',
                     }}
+                    onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                    onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+
                   />
                 </div>
               </div>
@@ -162,7 +173,14 @@ function History() {
         </div>
       </section>
 
-      <section className="section bg-pattern-2 animated-bg">
+      <section className="section" style={{
+        position: 'relative',
+        overflow: 'hidden',
+        minHeight: '600px',
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${localImages.history.evolution})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
         <div className="container">
           <div className="legacy-content" style={{
             display: 'flex',
@@ -171,39 +189,51 @@ function History() {
             gap: 'var(--spacing-xl)'
           }}>
             <div className="text-center" data-aos="zoom-in">
-              <h2>Our Legacy Continues</h2>
+              <h2 style={{ color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>Our Legacy Continues</h2>
               <div className="divider"></div>
-              <p style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <p style={{ maxWidth: '800px', margin: '0 auto', color: 'white', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)' }}>
                 Today, we continue to build on our rich history, honoring our commitment to quality,
                 sustainability, and the communities we serve. Each cup of Kafe5aromas coffee tells
                 a story of passion, dedication, and the pursuit of excellence.
               </p>
               <div style={{ marginTop: 'var(--spacing-lg)' }}>
-                <FaCoffee size={40} className="coffee-bean-icon" color="var(--color-brown)" />
+                <FaCoffee size={40} className="coffee-bean-icon" color="var(--color-green)" />
               </div>
             </div>
 
-            <div className="coffee-processing-image" data-aos="fade-up" style={{
+            <div className="drone-images-grid" data-aos="fade-up" style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: 'var(--spacing-md)',
               width: '100%',
-              maxWidth: '800px',
-              height: '300px',
-              borderRadius: 'var(--border-radius-md)',
-              overflow: 'hidden',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
-              margin: '0 auto'
+              marginBottom: 'var(--spacing-xxl)'
             }}>
-              <img
-                src={images.history.coffee_processing}
-                alt="Coffee Processing"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  transition: 'transform 0.5s ease',
-                }}
-                onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-                onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-              />
+              {[
+                localImages.history.origins,
+                localImages.history.tradition,
+                localImages.history.evolution,
+                localImages.history.hero
+              ].map((image, index) => (
+                <div key={index} style={{
+                  height: '250px',
+                  borderRadius: 'var(--border-radius-md)',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)'
+                }}>
+                  <img
+                    src={image}
+                    alt={`History Image ${index + 1}`}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.5s ease',
+                    }}
+                    onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                    onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

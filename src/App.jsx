@@ -3,12 +3,15 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import './styles/global.css';
 import './styles/effects.css';
 import './styles/responsive.css';
+import './styles/components.css';
+import './styles/utilities.css';
 import { applyPerformanceOptimizations } from './utils/performanceOptimizer';
 
 // Core Components
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Loading from './components/Loading';
+import ScrollToTop from './components/ScrollToTop';
 
 // Lazy-loaded Pages for better performance
 const Home = lazy(() => import('./pages/Home'));
@@ -83,6 +86,7 @@ function App() {
             </Suspense>
           </main>
           <Footer />
+          <ScrollToTop />
         </div>
       )}
     </Router>

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { FaCoffee, FaLeaf, FaHandshake } from 'react-icons/fa';
 import { images, videos } from '../assets/images';
+import { localImages } from '../assets/localImages';
 import BackgroundVideo from '../components/BackgroundVideo';
 
 function Mission() {
@@ -29,7 +30,7 @@ function Mission() {
       <section className="hero" style={{
         height: '60vh',
         position: 'relative',
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${images.mission.farmers})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${localImages.mission.farmers})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }} data-aos="fade-down">
@@ -102,7 +103,7 @@ function Mission() {
                   }}
                 >
                   <img
-                    src={images.mission.farmers}
+                    src={localImages.mission.farmers}
                     alt="Coffee Farmers"
                     style={{
                       width: '100%',
@@ -125,7 +126,7 @@ function Mission() {
         position: 'relative',
         overflow: 'hidden',
         minHeight: '600px',
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${images.mission.coffee_plantation})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${localImages.mission.processing})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}>
@@ -153,10 +154,10 @@ function Mission() {
                 marginBottom: 'var(--spacing-xxl)' // Añadido espaciado adicional después del grid
               }}>
                 {[
-                  images.drone.farm5,
-                  images.drone.farm6,
-                  images.drone.farm7,
-                  images.drone.farm8
+                  localImages.drone.farm5,
+                  localImages.drone.farm6,
+                  localImages.drone.farm7,
+                  localImages.drone.farm8
                 ].map((image, index) => (
                   <div key={index} style={{
                     height: '250px', // Aumentado la altura para coincidir con la página de inicio
