@@ -1,69 +1,53 @@
 // Local high-quality images for the Kafe5aromas website
 // This file centralizes all image imports for better management
 
-// Import placeholder images for production build
-import { placeholderImages } from './placeholderImages';
-
-// Check if we're in production mode
-const isProduction = import.meta.env.PROD;
-
 // Import logo
 import logo from './images/logofinal.png';
+
+// Define a base path for images
+const basePath = '/images/';
+
+// Define a placeholder image path
+const placeholderImage = `${basePath}placeholder.jpg`;
 
 // Define variables for images
 let droneImage1, droneImage2, droneImage3, droneImage4, droneImage5,
     droneImage6, droneImage7, droneImage8, droneImage9, droneImage10,
     droneImage11, droneImage12, droneImage13;
 
-// In production, use placeholders to avoid large file issues
-if (isProduction) {
-  // Use placeholder images in production
-  droneImage1 = placeholderImages.drone.farm1;
-  droneImage2 = placeholderImages.drone.farm2;
-  droneImage3 = placeholderImages.drone.farm3;
-  droneImage4 = placeholderImages.drone.farm4;
-  droneImage5 = placeholderImages.drone.farm5;
-  droneImage6 = placeholderImages.drone.farm6;
-  droneImage7 = placeholderImages.drone.farm7;
-  droneImage8 = placeholderImages.drone.farm8;
-  droneImage9 = placeholderImages.drone.farm9;
-  droneImage10 = placeholderImages.drone.farm10;
-  droneImage11 = placeholderImages.drone.farm11;
-  droneImage12 = placeholderImages.drone.farm12;
-  droneImage13 = placeholderImages.drone.farm13;
-} else {
-  // In development, try to use the real images
-  try {
-    droneImage1 = new URL('./images/DJI_20240523145421_0001_D.JPG', import.meta.url).href;
-    droneImage2 = new URL('./images/DJI_20240523145441_0002_D.JPG', import.meta.url).href;
-    droneImage3 = new URL('./images/DJI_20240523145450_0003_D.JPG', import.meta.url).href;
-    droneImage4 = new URL('./images/DJI_20240523145605_0004_D.JPG', import.meta.url).href;
-    droneImage5 = new URL('./images/DJI_20240523145653_0005_D.JPG', import.meta.url).href;
-    droneImage6 = new URL('./images/DJI_20240523145657_0006_D.JPG', import.meta.url).href;
-    droneImage7 = new URL('./images/DJI_20240523145718_0007_D.JPG', import.meta.url).href;
-    droneImage8 = new URL('./images/DJI_20240523145733_0008_D.JPG', import.meta.url).href;
-    droneImage9 = new URL('./images/DJI_20240523145807_0009_D.JPG', import.meta.url).href;
-    droneImage10 = new URL('./images/DJI_20240523145810_0010_D.JPG', import.meta.url).href;
-    droneImage11 = new URL('./images/DJI_20240523145851_0011_D.JPG', import.meta.url).href;
-    droneImage12 = new URL('./images/DJI_20240523150913_0015_D.JPG', import.meta.url).href;
-    droneImage13 = new URL('./images/DJI_20240523151015_0017_D.JPG', import.meta.url).href;
-  } catch (error) {
-    console.warn('Could not load some images, using placeholders instead', error);
-    // Fallback to placeholders if images can't be loaded
-    droneImage1 = placeholderImages.drone.farm1;
-    droneImage2 = placeholderImages.drone.farm2;
-    droneImage3 = placeholderImages.drone.farm3;
-    droneImage4 = placeholderImages.drone.farm4;
-    droneImage5 = placeholderImages.drone.farm5;
-    droneImage6 = placeholderImages.drone.farm6;
-    droneImage7 = placeholderImages.drone.farm7;
-    droneImage8 = placeholderImages.drone.farm8;
-    droneImage9 = placeholderImages.drone.farm9;
-    droneImage10 = placeholderImages.drone.farm10;
-    droneImage11 = placeholderImages.drone.farm11;
-    droneImage12 = placeholderImages.drone.farm12;
-    droneImage13 = placeholderImages.drone.farm13;
-  }
+// Use direct image imports for development and relative paths for production
+try {
+  // Import images directly - this works in development
+  droneImage1 = new URL('./images/DJI_20240523145421_0001_D.JPG', import.meta.url).href;
+  droneImage2 = new URL('./images/DJI_20240523145441_0002_D.JPG', import.meta.url).href;
+  droneImage3 = new URL('./images/DJI_20240523145450_0003_D.JPG', import.meta.url).href;
+  droneImage4 = new URL('./images/DJI_20240523145605_0004_D.JPG', import.meta.url).href;
+  droneImage5 = new URL('./images/DJI_20240523145653_0005_D.JPG', import.meta.url).href;
+  droneImage6 = new URL('./images/DJI_20240523145657_0006_D.JPG', import.meta.url).href;
+  droneImage7 = new URL('./images/DJI_20240523145718_0007_D.JPG', import.meta.url).href;
+  droneImage8 = new URL('./images/DJI_20240523145733_0008_D.JPG', import.meta.url).href;
+  droneImage9 = new URL('./images/DJI_20240523145807_0009_D.JPG', import.meta.url).href;
+  droneImage10 = new URL('./images/DJI_20240523145810_0010_D.JPG', import.meta.url).href;
+  droneImage11 = new URL('./images/DJI_20240523145851_0011_D.JPG', import.meta.url).href;
+  droneImage12 = new URL('./images/DJI_20240523150913_0015_D.JPG', import.meta.url).href;
+  droneImage13 = new URL('./images/DJI_20240523151015_0017_D.JPG', import.meta.url).href;
+} catch (error) {
+  console.warn('Could not load some images directly, using relative paths instead', error);
+
+  // If direct imports fail (like in production build), use relative paths
+  droneImage1 = `${basePath}DJI_20240523145421_0001_D.JPG`;
+  droneImage2 = `${basePath}DJI_20240523145441_0002_D.JPG`;
+  droneImage3 = `${basePath}DJI_20240523145450_0003_D.JPG`;
+  droneImage4 = `${basePath}DJI_20240523145605_0004_D.JPG`;
+  droneImage5 = `${basePath}DJI_20240523145653_0005_D.JPG`;
+  droneImage6 = `${basePath}DJI_20240523145657_0006_D.JPG`;
+  droneImage7 = `${basePath}DJI_20240523145718_0007_D.JPG`;
+  droneImage8 = `${basePath}DJI_20240523145733_0008_D.JPG`;
+  droneImage9 = `${basePath}DJI_20240523145807_0009_D.JPG`;
+  droneImage10 = `${basePath}DJI_20240523145810_0010_D.JPG`;
+  droneImage11 = `${basePath}DJI_20240523145851_0011_D.JPG`;
+  droneImage12 = `${basePath}DJI_20240523150913_0015_D.JPG`;
+  droneImage13 = `${basePath}DJI_20240523151015_0017_D.JPG`;
 }
 
 // Export organized image collections
