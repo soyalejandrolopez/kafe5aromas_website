@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next"
 import i18n from "../i18n/i18n"
 import { FaGlobeAmericas } from "react-icons/fa"
 import logo from "../assets/images/logofinal.png"
-import GoogleTranslate from "./GoogleTranslate"
+import LanguageSwitcher from "./LanguageSwitcher"
 import '../styles/Header.css'
 
 function Header() {
@@ -47,6 +47,9 @@ function Header() {
     if (storedLanguage) {
       // Aplicar el idioma guardado
       i18n.changeLanguage(storedLanguage);
+    } else {
+      // Asegurar que el idioma por defecto sea inglés
+      i18n.changeLanguage('en');
     }
   }, [location, i18n])
 
@@ -408,10 +411,10 @@ function Header() {
                     fontSize: "0.9rem",
                     fontWeight: "500"
                   }}>
-                    {t('header.language')}:
+                    Language:
                   </span>
                 </div>
-                <GoogleTranslate />
+                <LanguageSwitcher />
               </div>
             </div>
           </nav>

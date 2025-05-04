@@ -1,39 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-function GoogleTranslate() {
+function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language || 'en');
 
-  // Función para abrir el sitio en un traductor online
-  const openTranslator = (lang) => {
+  // Efecto para sincronizar el estado con el idioma actual
+  useEffect(() => {
+    setLanguage(i18n.language);
+  }, [i18n.language]);
+
+  // Función para cambiar el idioma nativamente
+  const changeLanguage = (lang) => {
     // Guardar la preferencia de idioma
     setLanguage(lang);
     localStorage.setItem('preferredLanguage', lang);
-
-    // Si es inglés, simplemente cambiar el idioma de la interfaz
-    if (lang === 'en') {
-      i18n.changeLanguage('en');
-      return;
-    }
-
-    // Si es español, cambiar el idioma de la interfaz y abrir el traductor online
-    if (lang === 'es') {
-      i18n.changeLanguage('es');
-
-      // Opción 1: Abrir en un traductor online (DeepL)
-      const currentUrl = window.location.href;
-      const translatorUrl = `https://www.deepl.com/translator#en/es/${encodeURIComponent(currentUrl)}`;
-
-      // Abrir en una nueva pestaña
-      window.open(translatorUrl, '_blank');
-    }
+    
+    // Cambiar el idioma usando i18next
+    i18n.changeLanguage(lang);
   };
 
   // Manejar el cambio de idioma
   const handleLanguageChange = (e) => {
     const newLang = e.target.value;
-    openTranslator(newLang);
+    changeLanguage(newLang);
   };
 
   return (
@@ -79,4 +69,4 @@ function GoogleTranslate() {
   );
 }
 
-export default GoogleTranslate;
+export default LanguageSwitcher;

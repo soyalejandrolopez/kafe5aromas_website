@@ -17,6 +17,7 @@ i18n
         translation: esTranslation
       }
     },
+    lng: 'en', // Forzar inglés como idioma por defecto
     fallbackLng: 'en',
     debug: false,
     detection: {
@@ -34,6 +35,7 @@ i18n
 // Function to change language and save preference
 export const changeLanguage = (lng) => {
   i18n.changeLanguage(lng);
+  localStorage.setItem('preferredLanguage', lng);
   localStorage.setItem('i18nextLng', lng);
 };
 

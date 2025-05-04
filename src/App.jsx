@@ -28,12 +28,17 @@ function App() {
 
       // Check for stored language preference
       const storedLanguage = localStorage.getItem('preferredLanguage');
-      if (storedLanguage) {
-        // Aplicar el idioma guardado
-        import('./i18n/i18n').then(i18nModule => {
+
+      // Importar el módulo i18n
+      import('./i18n/i18n').then(i18nModule => {
+        if (storedLanguage) {
+          // Aplicar el idioma guardado
           i18nModule.default.changeLanguage(storedLanguage);
-        });
-      }
+        } else {
+          // Asegurar que el idioma por defecto sea inglés
+          i18nModule.default.changeLanguage('en');
+        }
+      });
     }, 3000);
 
     return () => clearTimeout(timer);
