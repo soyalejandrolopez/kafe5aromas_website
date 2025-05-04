@@ -446,7 +446,7 @@ function Home() {
                 width: '60px',
                 height: '60px',
                 borderRadius: '50%',
-                backgroundColor: 'rgba(76, 125, 77, 0.1)',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -454,7 +454,7 @@ function Home() {
                 position: 'relative',
                 zIndex: 1
               }}>
-                <FaCoffee size={28} color="var(--color-green)" />
+                <FaCoffee size={28} color="white" />
               </div>
 
               <h3 style={{
@@ -507,7 +507,7 @@ function Home() {
                 width: '60px',
                 height: '60px',
                 borderRadius: '50%',
-                backgroundColor: 'rgba(76, 125, 77, 0.1)',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -515,7 +515,7 @@ function Home() {
                 position: 'relative',
                 zIndex: 1
               }}>
-                <FaLeaf size={28} color="var(--color-green)" />
+                <FaLeaf size={28} color="white" />
               </div>
 
               <h3 style={{
@@ -568,7 +568,7 @@ function Home() {
                 width: '60px',
                 height: '60px',
                 borderRadius: '50%',
-                backgroundColor: 'rgba(76, 125, 77, 0.1)',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -576,7 +576,7 @@ function Home() {
                 position: 'relative',
                 zIndex: 1
               }}>
-                <FaStar size={28} color="var(--color-green)" />
+                <FaStar size={28} color="white" />
               </div>
 
               <h3 style={{
