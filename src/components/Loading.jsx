@@ -8,11 +8,16 @@ function Loading() {
   useEffect(() => {
     // Array of loading messages
     const loadingMessages = [
-      'Preparando tu experiencia...',
-      'Tostando los granos...',
-      'Moliendo el café...',
-      'Preparando el aroma...',
-      'Casi listo...'
+      'Preparing your experience.',
+      'Roasting the beans.',
+      'Brewing the perfect cup.', 
+      'Connecting with our community.', 
+      'Crafting your perfect blend.', 
+      'Savoring the aroma.', 
+      'Enjoying the flavors.', 
+      'Creating memories.', 
+      'Sharing the love.', 
+      'Thank you for choosing Kafe 5 Aromas.'
     ];
 
     // Progress timer
