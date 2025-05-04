@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node copy-images.js",
+    "prebuild": "node copy-images.cjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "check-deploy": "node scripts/check-deploy.js"
+    "check-deploy": "node scripts/check-deploy.js",
+    "vercel-build": "node copy-images.cjs && vite build"
   },
   "dependencies": {
     "aos": "^2.3.4",

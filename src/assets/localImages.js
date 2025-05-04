@@ -4,10 +4,13 @@
 // Import logo
 import logo from './images/logofinal.png';
 
+// Check if we're in production mode
+const isProduction = import.meta.env.PROD;
+
 // Define a base path for images
 const basePath = '/images/';
 
-// Define a placeholder image path
+// Define a placeholder image path for fallback
 const placeholderImage = `${basePath}placeholder.jpg`;
 
 // Define variables for images
@@ -15,40 +18,36 @@ let droneImage1, droneImage2, droneImage3, droneImage4, droneImage5,
     droneImage6, droneImage7, droneImage8, droneImage9, droneImage10,
     droneImage11, droneImage12, droneImage13;
 
-// Use direct image imports for development and relative paths for production
-try {
-  // Import images directly - this works in development
-  droneImage1 = new URL('./images/DJI_20240523145421_0001_D.JPG', import.meta.url).href;
-  droneImage2 = new URL('./images/DJI_20240523145441_0002_D.JPG', import.meta.url).href;
-  droneImage3 = new URL('./images/DJI_20240523145450_0003_D.JPG', import.meta.url).href;
-  droneImage4 = new URL('./images/DJI_20240523145605_0004_D.JPG', import.meta.url).href;
-  droneImage5 = new URL('./images/DJI_20240523145653_0005_D.JPG', import.meta.url).href;
-  droneImage6 = new URL('./images/DJI_20240523145657_0006_D.JPG', import.meta.url).href;
-  droneImage7 = new URL('./images/DJI_20240523145718_0007_D.JPG', import.meta.url).href;
-  droneImage8 = new URL('./images/DJI_20240523145733_0008_D.JPG', import.meta.url).href;
-  droneImage9 = new URL('./images/DJI_20240523145807_0009_D.JPG', import.meta.url).href;
-  droneImage10 = new URL('./images/DJI_20240523145810_0010_D.JPG', import.meta.url).href;
-  droneImage11 = new URL('./images/DJI_20240523145851_0011_D.JPG', import.meta.url).href;
-  droneImage12 = new URL('./images/DJI_20240523150913_0015_D.JPG', import.meta.url).href;
-  droneImage13 = new URL('./images/DJI_20240523151015_0017_D.JPG', import.meta.url).href;
-} catch (error) {
-  console.warn('Could not load some images directly, using relative paths instead', error);
+// Function to create image URLs
+const createImageUrl = (filename) => {
+  if (isProduction) {
+    // In production, use absolute paths from the public directory
+    return `${basePath}${filename}`;
+  } else {
+    // In development, try to use direct imports
+    try {
+      return new URL(`./images/${filename}`, import.meta.url).href;
+    } catch (error) {
+      console.warn(`Could not load image: ${filename}, using fallback path`);
+      return `${basePath}${filename}`;
+    }
+  }
+};
 
-  // If direct imports fail (like in production build), use relative paths
-  droneImage1 = `${basePath}DJI_20240523145421_0001_D.JPG`;
-  droneImage2 = `${basePath}DJI_20240523145441_0002_D.JPG`;
-  droneImage3 = `${basePath}DJI_20240523145450_0003_D.JPG`;
-  droneImage4 = `${basePath}DJI_20240523145605_0004_D.JPG`;
-  droneImage5 = `${basePath}DJI_20240523145653_0005_D.JPG`;
-  droneImage6 = `${basePath}DJI_20240523145657_0006_D.JPG`;
-  droneImage7 = `${basePath}DJI_20240523145718_0007_D.JPG`;
-  droneImage8 = `${basePath}DJI_20240523145733_0008_D.JPG`;
-  droneImage9 = `${basePath}DJI_20240523145807_0009_D.JPG`;
-  droneImage10 = `${basePath}DJI_20240523145810_0010_D.JPG`;
-  droneImage11 = `${basePath}DJI_20240523145851_0011_D.JPG`;
-  droneImage12 = `${basePath}DJI_20240523150913_0015_D.JPG`;
-  droneImage13 = `${basePath}DJI_20240523151015_0017_D.JPG`;
-}
+// Set all image URLs
+droneImage1 = createImageUrl('DJI_20240523145421_0001_D.JPG');
+droneImage2 = createImageUrl('DJI_20240523145441_0002_D.JPG');
+droneImage3 = createImageUrl('DJI_20240523145450_0003_D.JPG');
+droneImage4 = createImageUrl('DJI_20240523145605_0004_D.JPG');
+droneImage5 = createImageUrl('DJI_20240523145653_0005_D.JPG');
+droneImage6 = createImageUrl('DJI_20240523145657_0006_D.JPG');
+droneImage7 = createImageUrl('DJI_20240523145718_0007_D.JPG');
+droneImage8 = createImageUrl('DJI_20240523145733_0008_D.JPG');
+droneImage9 = createImageUrl('DJI_20240523145807_0009_D.JPG');
+droneImage10 = createImageUrl('DJI_20240523145810_0010_D.JPG');
+droneImage11 = createImageUrl('DJI_20240523145851_0011_D.JPG');
+droneImage12 = createImageUrl('DJI_20240523150913_0015_D.JPG');
+droneImage13 = createImageUrl('DJI_20240523151015_0017_D.JPG');
 
 // Export organized image collections
 export const localImages = {
