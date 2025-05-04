@@ -12,6 +12,9 @@
     "en": "Inglés",
     "es": "Español"
   },
+  "header": {
+    "language": "Idioma"
+  },
   "home": {
     "welcome": "Descubre la Esencia",
     "tagline": "Café excepcional de especialidad y origen único"

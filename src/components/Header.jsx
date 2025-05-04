@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import i18n from "../i18n/i18n"
 import { FaGlobeAmericas } from "react-icons/fa"
 import logo from "../assets/images/logofinal.png"
 import GoogleTranslate from "./GoogleTranslate"
 import '../styles/Header.css'
-import '../styles/GoogleTranslate.css'
 
 function Header() {
   const { t } = useTranslation()
@@ -44,17 +44,11 @@ function Header() {
 
     // Check for stored language preference
     const storedLanguage = localStorage.getItem('preferredLanguage');
-    if (storedLanguage === 'es') {
-      // Intentar forzar la traducción después de cambiar de página
-      setTimeout(() => {
-        const select = document.querySelector('.goog-te-combo');
-        if (select) {
-          select.value = 'es';
-          select.dispatchEvent(new Event('change'));
-        }
-      }, 500);
+    if (storedLanguage) {
+      // Aplicar el idioma guardado
+      i18n.changeLanguage(storedLanguage);
     }
-  }, [location])
+  }, [location, i18n])
 
   const isHomePage = location.pathname === "/"
 
@@ -414,7 +408,7 @@ function Header() {
                     fontSize: "0.9rem",
                     fontWeight: "500"
                   }}>
-                    Translate:
+                    {t('header.language')}:
                   </span>
                 </div>
                 <GoogleTranslate />

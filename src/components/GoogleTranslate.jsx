@@ -1,70 +1,39 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function GoogleTranslate() {
-  const [language, setLanguage] = useState('en');
+  const { i18n } = useTranslation();
+  const [language, setLanguage] = useState(i18n.language || 'en');
 
-  // Función directa para traducir la página usando Google Translate
-  const translatePage = (lang) => {
-    // Actualizar el estado
-    setLanguage(lang);
-
+  // Función para abrir el sitio en un traductor online
+  const openTranslator = (lang) => {
     // Guardar la preferencia de idioma
+    setLanguage(lang);
     localStorage.setItem('preferredLanguage', lang);
 
-    // Si es inglés, recargar la página para volver al original
+    // Si es inglés, simplemente cambiar el idioma de la interfaz
     if (lang === 'en') {
-      window.location.reload();
+      i18n.changeLanguage('en');
       return;
     }
 
-    // Crear el script de Google Translate
-    const script = document.createElement('script');
-    script.src = `//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit`;
-    script.async = true;
+    // Si es español, cambiar el idioma de la interfaz y abrir el traductor online
+    if (lang === 'es') {
+      i18n.changeLanguage('es');
 
-    // Definir la función de inicialización
-    window.googleTranslateElementInit = function() {
-      new window.google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'es',
-        autoDisplay: false
-      }, 'google_translate_element');
+      // Opción 1: Abrir en un traductor online (DeepL)
+      const currentUrl = window.location.href;
+      const translatorUrl = `https://www.deepl.com/translator#en/es/${encodeURIComponent(currentUrl)}`;
 
-      // Forzar la traducción al idioma seleccionado
-      setTimeout(() => {
-        // Buscar el iframe de Google Translate
-        const iframe = document.querySelector('.goog-te-menu-frame');
-        if (iframe) {
-          // Acceder al documento dentro del iframe
-          const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-
-          // Buscar y hacer clic en el enlace del idioma
-          const links = iframeDoc.querySelectorAll('a.goog-te-menu2-item');
-          for (let i = 0; i < links.length; i++) {
-            if (links[i].textContent.includes('Spanish') || links[i].textContent.includes('Español')) {
-              links[i].click();
-              break;
-            }
-          }
-        } else {
-          // Si no encontramos el iframe, intentar con el método alternativo
-          const select = document.querySelector('.goog-te-combo');
-          if (select) {
-            select.value = 'es';
-            select.dispatchEvent(new Event('change'));
-          }
-        }
-      }, 1000);
-    };
-
-    // Añadir el script al documento
-    document.body.appendChild(script);
+      // Abrir en una nueva pestaña
+      window.open(translatorUrl, '_blank');
+    }
   };
 
   // Manejar el cambio de idioma
   const handleLanguageChange = (e) => {
     const newLang = e.target.value;
-    translatePage(newLang);
+    openTranslator(newLang);
   };
 
   return (

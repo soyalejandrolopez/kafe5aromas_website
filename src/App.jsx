@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import './styles/global.css';
 import './styles/effects.css';
 import './styles/responsive.css';
-import './styles/GoogleTranslate.css';
 
 // Components
 import Header from './components/Header';
@@ -29,38 +28,11 @@ function App() {
 
       // Check for stored language preference
       const storedLanguage = localStorage.getItem('preferredLanguage');
-      if (storedLanguage && storedLanguage === 'es') {
-        // Crear el elemento para Google Translate
-        const div = document.createElement('div');
-        div.id = 'google_translate_element';
-        div.style.display = 'none';
-        document.body.appendChild(div);
-
-        // Cargar el script de Google Translate
-        const script = document.createElement('script');
-        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        script.async = true;
-
-        // Definir la función de inicialización
-        window.googleTranslateElementInit = function() {
-          new window.google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'es',
-            autoDisplay: false
-          }, 'google_translate_element');
-
-          // Forzar la traducción al español
-          setTimeout(() => {
-            const select = document.querySelector('.goog-te-combo');
-            if (select) {
-              select.value = 'es';
-              select.dispatchEvent(new Event('change'));
-            }
-          }, 1000);
-        };
-
-        // Añadir el script al documento
-        document.body.appendChild(script);
+      if (storedLanguage) {
+        // Aplicar el idioma guardado
+        import('./i18n/i18n').then(i18nModule => {
+          i18nModule.default.changeLanguage(storedLanguage);
+        });
       }
     }, 3000);
 

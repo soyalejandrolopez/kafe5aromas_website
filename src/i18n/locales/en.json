@@ -12,6 +12,9 @@
     "en": "English",
     "es": "Spanish"
   },
+  "header": {
+    "language": "Language"
+  },
   "home": {
     "welcome": "Experience the Essence",
     "tagline": "Exceptional specialty and single-origin coffee"
