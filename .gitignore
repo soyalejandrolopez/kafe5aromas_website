@@ -46,6 +46,18 @@ src/assets/images/DJI_*.JPG
 # Exclude any file larger than 50MB
 # Host these files externally instead
 
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build files
+dist
+build
+.vercel
+
 # Build files
 /dist
 /.cache

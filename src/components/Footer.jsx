@@ -15,7 +15,8 @@ import {
 } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
 import logo from "../assets/images/logofinal.png";
-import backgroundImage from "../assets/images/DJI_20240523145421_0001_D.JPG";
+// Usar una imagen más pequeña o un color de fondo en lugar de la imagen grande
+// import backgroundImage from "../assets/images/DJI_20240523145421_0001_D.JPG";
 import '../styles/animations.css';
 
 function Footer() {
@@ -30,14 +31,14 @@ function Footer() {
       marginTop: "50px",
       overflow: "hidden"
     }}>
-      {/* Background Image */}
+      {/* Background Color instead of Image */}
       <div style={{
         position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundColor: "#111",
         backgroundSize: "cover",
         backgroundPosition: "center",
         opacity: 0.1,
